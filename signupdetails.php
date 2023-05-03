@@ -5,8 +5,8 @@ $showalert='<div class="alert alert-warning alert-dismissible fade show" role="a
 <strong>Warning!</strong> You cannot sign up.
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
-$showsucess='<div class="alert alert-sucess alert-dismissible fade show" role="alert">
-<strong>Warning!</strong> You cannot sign up.
+$showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>Congrats!</strong> Sign up Sucessful.
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
 if ($_SERVER['REQUEST_METHOD']=="POST"){
@@ -31,15 +31,22 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     }
     else{
         if ($ConfirmPassword==$Password){
-            $hash = password_hash($Password, PASSWORD_DEFAULT);
-            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`) 
-            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp())";
+            //If the signup is for patient directly do signup without any confirmation
+            if ($Role=="Patient"){
+                //password_hash is a given function in php to hash the password.2 parameters(passwordvalue,PASSWORD_DEFAULT)
+               
+                $vcode=bin2hex(random_bytes(16));
+    
+                $hash = password_hash($Password, PASSWORD_DEFAULT);
+            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`) 
+            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode','0')";
             $result=mysqli_query($conn,$sql);
             if ($result){
-                $_SESSION['sucessstatus']=$showalert;
+                $_SESSION['sucessstatus']=$showsucess;
                 header("location:index.php");
                     }
                 }
+            }
                 else{
                     $_SESSION['status']=$showalert;
                     header("location:index.php");

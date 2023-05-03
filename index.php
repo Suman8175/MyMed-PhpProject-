@@ -4,10 +4,13 @@ session_start();
 if (isset($_SESSION['status'])){
     echo $_SESSION['status'];
     unset($_SESSION['status']);
-
-   
 }
-
+else{
+    if (isset($_SESSION['sucessstatus'])){
+        echo $_SESSION['sucessstatus'];
+        unset($_SESSION['sucessstatus']);
+}
+}
       
 
 ?>
@@ -114,8 +117,8 @@ if (isset($_SESSION['status'])){
                             <p>Account Holder</p>
                             <div class="choose">
                               <select name="Role" id="role">
-                                <option value="Admin">Admin</option>
-                                <option value="Client">Client</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Patient">Patient</option>
                                 
                              </select>
                             </div>
