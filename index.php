@@ -1,6 +1,9 @@
 <?php
+//Include bootstrap.php is used as we have use bootstrap components in index.php and bootstrap.php contains bootstrap links
  include 'bootstrap.php';
+ //Session shall always start at the top .Note:Session shall not start inside a function.
 session_start();
+//if (isset($_SESSION['status'])) is used to check if the status value is set or not.We set 
 if (isset($_SESSION['status'])){
     echo $_SESSION['status'];
     unset($_SESSION['status']);
@@ -11,7 +14,10 @@ else{
         unset($_SESSION['sucessstatus']);
 }
 }
-      
+if (isset($_SESSION['mailstatus'])){
+    echo $_SESSION['mailstatus'];
+    unset($_SESSION['mailstatus']);
+}    
 
 ?>
 

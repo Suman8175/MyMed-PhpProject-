@@ -1,16 +1,16 @@
 <?php
 session_start();
+//include bootstrap to access bootstrap elements used
 include 'bootstrap.php';
-$showalert='<div class="alert alert-warning alert-dismissible fade show" role="alert">
-<strong>Warning!</strong> You cannot sign up.
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
-$showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
-<strong>Congrats!</strong> Sign up Sucessful.
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
+//Requiring maile.php because in maile.php we have created a function through which we can send mail
+require 'maile.php';
+//Empty variable so we can assign a certain value when required
+$showalert="";
+$showsucess="";
+
 if ($_SERVER['REQUEST_METHOD']=="POST"){
     include 'connection.php';
+    //$_POST['something'] is used to mainly get a value from form through post method
     $Username=$_POST['Username'];
     $Email=$_POST['Email'];
     $Password=$_POST['Password'];
@@ -24,31 +24,51 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
      $exists="select * from `logintable` WHERE Email = '$Email'";
     $existsquery=mysqli_query($conn,$exists);
     $noofrows=mysqli_num_rows($existsquery);
+    //To check if the email is already use.If noofrows is greater than 0 which means email is already in use
     if ($noofrows>0)
     {
+        $showalert='<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> Email is already in use.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        //Session is used here to redirect a message got from this page(signupdetails.php) to another page (index.php)
         $_SESSION['status']=$showalert;
+        // header is used to redirect to another php file.Suppose i have only backend work in this file and html files in 
+        // index.html so after a certain work is done through this php file it will redirect it into index.html 
         header("location:index.php");
     }
     else{
         if ($ConfirmPassword==$Password){
-            //If the signup is for patient directly do signup without any confirmation
+           
+            //If the signup is for patient directly do signup without any confirmation from admin
             if ($Role=="Patient"){
                 //password_hash is a given function in php to hash the password.2 parameters(passwordvalue,PASSWORD_DEFAULT)
-               
-                $vcode=bin2hex(random_bytes(16));
-    
                 $hash = password_hash($Password, PASSWORD_DEFAULT);
-            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`) 
-            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode','0')";
+                // random_bytes() is used to generate a random byte and bin2hex() will transform those random byte into hexadecimal
+                $vcode=bin2hex(random_bytes(16));
+            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`) 
+            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode')";
             $result=mysqli_query($conn,$sql);
-            if ($result){
+            //To check if both query as well as email is gone then signup shall be sucessful and user shall be rediect to verify his account
+            if ($result && sendmail($Email,$vcode)){
+                $showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats!</strong> Signup Sucess.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
                 $_SESSION['sucessstatus']=$showsucess;
+                 // header is used to redirect to another  file.
                 header("location:index.php");
                     }
-                }
+                
             }
+        }
                 else{
+                    $showalert='<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Warning!</strong> Please enter your password correctly on both field.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>';
                     $_SESSION['status']=$showalert;
+                     // header is used to redirect to another file.
                     header("location:index.php");
                 }
             }
