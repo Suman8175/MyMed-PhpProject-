@@ -125,6 +125,7 @@ if (isset($_SESSION['mailstatus'])){
                               <select name="Role" id="role">
                                 <option value="Doctor">Doctor</option>
                                 <option value="Patient">Patient</option>
+                                <input type="file" id="myFile" name="filename">
                                 
                              </select>
                             </div>
