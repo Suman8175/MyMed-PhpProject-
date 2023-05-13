@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+ if (!session_id()) session_start();
 $showmail="";
 //This is use to send mail through PHPMailer.
 use PHPMailer\PHPMailer\PHPMailer;
@@ -14,12 +15,12 @@ require 'phpmailer/src/SMTP.php';
     $mail->isSMTP(); 
     $mail->Host  = 'smtp.gmail.com'; 
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'mymed8175@gmail.com';  
-    $mail->Password   = 'ykwgoexksuogwhyo'; 
+    $mail->Username   = 'dssuman525@gmail.com';  
+    $mail->Password   = 'gzhjirykicjiknbn'; 
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
     //setFrom is for your email address through which you send mail
-    $mail->setFrom('mymed8175@gmail.com', 'MyMed');
+    $mail->setFrom('dssuman525@gmail.com', 'MyMed');
     //addAddress is the destination email address to which you have to send mail
     $mail->addAddress($mailing); 
     $mail->isHTML(true); 
@@ -28,12 +29,13 @@ require 'phpmailer/src/SMTP.php';
     $mail->Body = "Here is the verification link
     <a href='http://localhost/project/verify.php?email=$mailing&verification=$code'>Verify</a>";
     $mail->send();
-    $showmail='<div class="alert alert-success alert-dismissible fade show" role="alert">
+  $showmail='<div class="alert alert-success alert-dismissible fade show" role="alert">
    Please Check your email to verify your account.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
     $_SESSION['mailstatus']=$showmail;
     header("location:index.php");
+
     }
     catch(Exception $e){
         echo "Message could not be send";
@@ -42,4 +44,5 @@ require 'phpmailer/src/SMTP.php';
 
   
 }
+
 ?>

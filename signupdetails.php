@@ -7,7 +7,16 @@ require 'maile.php';
 //Empty variable so we can assign a certain value when required
 $showalert="";
 $showsucess="";
-
+ if (isset($_GET['verified']) && $_GET['verified'] == 'true') {
+    $showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congrats!</strong> Signup Sucess.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+    $_SESSION['sucessstatus']=$showsucess;
+     // header is used to redirect to another  file.
+    header("location:index.php");
+        }
+       
 if ($_SERVER['REQUEST_METHOD']=="POST"){
     include 'connection.php';
     //$_POST['something'] is used to mainly get a value from form through post method
@@ -18,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     $DOB=$_POST['DOB'];
     $Gender=$_POST['Gender'];
     $Role=$_POST['Role'];
-
+    $filename=$_FILES["choosefile"]["name"];
+    $tempfile=$_FILES["choosefile"]["tmp_name"];
+     $folder="pdffiles/".$filename;
      //To check if the email already exists
 
      $exists="select * from `logintable` WHERE Email = '$Email'";
@@ -50,18 +61,47 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode')";
             $result=mysqli_query($conn,$sql);
             //To check if both query as well as email is gone then signup shall be sucessful and user shall be rediect to verify his account
-            if ($result && sendmail($Email,$vcode)){
-                $showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Congrats!</strong> Signup Sucess.
+                if ($result){
+                 sendmail($Email,$vcode);
+               
+                    //Till here
+                }
+                    else{
+                        
+                    } 
+                
+            } 
+           else{
+                $hash = password_hash($Password, PASSWORD_DEFAULT);
+                $vcode=bin2hex(random_bytes(16));
+                if(!$filename == ""){
+            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`,`AccountCreation`, `verificationcode`,`certificate`) 
+            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode','$filename')";
+                 $resultdoctor=mysqli_query($conn,$sql);
+                 move_uploaded_file($tempfile,$folder); 
+                if($resultdoctor ){
+                    sendmail($Email,$vcode);
+                    $showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats!</strong> Now your account needs to be verified by admin.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
-                $_SESSION['sucessstatus']=$showsucess;
-                 // header is used to redirect to another  file.
-                header("location:index.php");
-                    }
+                 
+
+                }
+                else{
+                    echo "Not nice";
+                    echo("Uncessful due to ".mysqli_error($conn));
+                }
+
+             
                 
+                
+               }
+               else{
+                echo "Not Done";
+               }
             }
-        }
+            } 
                 else{
                     $showalert='<div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Warning!</strong> Please enter your password correctly on both field.
@@ -72,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
                     header("location:index.php");
                 }
             }
-            }
+        }
             ?>
     
     

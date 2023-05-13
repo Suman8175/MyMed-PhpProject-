@@ -3,7 +3,8 @@
  include 'bootstrap.php';
  //Session shall always start at the top .Note:Session shall not start inside a function.
 session_start();
-//if (isset($_SESSION['status'])) is used to check if the status value is set or not.We set 
+//if (isset($_SESSION['status'])) is used to check if the status value is set or not.We already set it in signupdetails.php and after using it 
+//we have to unset it.
 if (isset($_SESSION['status'])){
     echo $_SESSION['status'];
     unset($_SESSION['status']);
@@ -17,9 +18,26 @@ else{
 if (isset($_SESSION['mailstatus'])){
     echo $_SESSION['mailstatus'];
     unset($_SESSION['mailstatus']);
-}    
+} 
+if (isset($_SESSION['emailverified'])){ 
+    echo $_SESSION['emailverified'];
+    unset($_SESSION['emailverified']);
+}   
+if (isset($_SESSION['emailnotverified'])){ 
+    echo $_SESSION['emailnotverified'];
+    unset($_SESSION['emailnotverified']);
+} 
+if (isset($_SESSION['emailalreadyverified'])){
+    echo $_SESSION['emailalreadyverified'];
+    unset($_SESSION['emailalreadyverified']);
+}
+if (isset($_SESSION['emailalreadyuse'])){ 
+    echo $_SESSION['emailalreadyuse'];
+    unset($_SESSION['emailalreadyuse']);
+}
 
 ?>
+
 
 <!DOCTYPE html>
     <html lang="en">
@@ -65,16 +83,15 @@ if (isset($_SESSION['mailstatus'])){
                     </div>
                 </div>
 
-
-
             </div>
 
             <!-- Signup Form -->
-
+           
             <div class="form signup">
                 <div class="form-content">
                     <header>Signup</header>
-                    <form action="signupdetails.php" method="POST">
+                    
+                    <form action="signupdetails.php" method="POST" enctype="multipart/form-data">
                         <div class="field input-field">
                             <input type="text" name="Username" placeholder="Enter Full Name" class="input" required>
                         </div>
@@ -122,19 +139,23 @@ if (isset($_SESSION['mailstatus'])){
                           <div class="account">
                             <p>Account Holder</p>
                             <div class="choose">
-                              <select name="Role" id="role">
-                                <option value="Doctor">Doctor</option>
+                              <select name="Role" id="role" onchange="toggleFileInput()">
                                 <option value="Patient">Patient</option>
-                                
+                                <option value="Doctor" >Doctor</option>
+                                <script src="javascript/fileshower.js"></script>
                              </select>
+                            
                             </div>
                           </div>
-
+                          <div id="file-input" style="display: none;">
+                             <input type="file" name="choosefile" id="choosefile">
+                         </div>
+                         
                         <div class="field button-field">
                             <button>Signup</button>
                         </div>
                     </form>
-
+                   
                     <div class="form-link">
                         <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
                     </div>
@@ -142,7 +163,9 @@ if (isset($_SESSION['mailstatus'])){
 
 
             </div>
+           
         </section>
         <script src="scripts.js"></script>
+        
     </body>
 </html>
