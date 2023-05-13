@@ -142,6 +142,7 @@ if (isset($_SESSION['emailalreadyuse'])){
                               <select name="Role" id="role" onchange="toggleFileInput()">
                                 <option value="Patient">Patient</option>
                                 <option value="Doctor" >Doctor</option>
+                                <input type="file" id="myFile" name="filename">
                                 <script src="javascript/fileshower.js"></script>
                              </select>
                             
