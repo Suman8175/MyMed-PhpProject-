@@ -35,7 +35,10 @@ if (isset($_SESSION['emailalreadyuse'])){
     echo $_SESSION['emailalreadyuse'];
     unset($_SESSION['emailalreadyuse']);
 }
-
+if (isset($_SESSION['nosigned'])){ 
+    echo $_SESSION['nosigned'];
+    unset($_SESSION['nosigned']);
+}
 ?>
 
 
@@ -59,13 +62,13 @@ if (isset($_SESSION['emailalreadyuse'])){
             <div class="form login">
                 <div class="form-content">
                     <header>MyMed Login</header>
-                    <form action="signup.php">
+                    <form action="login.php" method="POST">
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input" required>
+                            <input type="email" placeholder="Email" name="logemail" class="input" required>
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Password" class="password" required>
+                            <input type="password" placeholder="Password" name="logpass" class="password" required>
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
@@ -142,8 +145,6 @@ if (isset($_SESSION['emailalreadyuse'])){
                               <select name="Role" id="role" onchange="toggleFileInput()">
                                 <option value="Patient">Patient</option>
                                 <option value="Doctor" >Doctor</option>
-                                <input type="file" id="myFile" name="filename">
-                                <script src="javascript/fileshower.js"></script>
                              </select>
                             
                             </div>
@@ -151,7 +152,7 @@ if (isset($_SESSION['emailalreadyuse'])){
                           <div id="file-input" style="display: none;">
                              <input type="file" name="choosefile" id="choosefile">
                          </div>
-                         
+                         <script src="javascript/fileshower.js"></script>
                         <div class="field button-field">
                             <button>Signup</button>
                         </div>
