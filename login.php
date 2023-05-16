@@ -21,7 +21,7 @@
             }
             elseif ($user["Role"] == "Admin" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1) {
                 $_SESSION['username'] = $useremail;
-                header("Location:Admin/welcomeadmin.php");
+                header("Location:Admin/dashboard.php");
             }
             else{
                 $showmessage='<div class="alert alert-warning alert-dismissible fade show" role="alert">

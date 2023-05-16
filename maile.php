@@ -15,12 +15,12 @@ require 'phpmailer/src/SMTP.php';
     $mail->isSMTP(); 
     $mail->Host  = 'smtp.gmail.com'; 
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'dssuman525@gmail.com';  
-    $mail->Password   = 'gzhjirykicjiknbn'; 
+    $mail->Username   = 'iamarpan15@gmail.com';  
+    $mail->Password   = 'obwiaqrfbzyzzoug'; 
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
     //setFrom is for your email address through which you send mail
-    $mail->setFrom('dssuman525@gmail.com', 'MyMed');
+    $mail->setFrom('iamarpan15@gmail.com', 'MyMed');
     //addAddress is the destination email address to which you have to send mail
     $mail->addAddress($mailing); 
     $mail->isHTML(true); 
