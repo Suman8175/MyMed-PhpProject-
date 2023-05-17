@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 03:31 PM
+-- Generation Time: May 16, 2023 at 03:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -38,16 +38,17 @@ CREATE TABLE `logintable` (
   `AccountCreation` datetime NOT NULL DEFAULT current_timestamp(),
   `verificationcode` varchar(255) NOT NULL,
   `isverified` int(11) NOT NULL DEFAULT 0,
-  `certificate` varchar(300) NOT NULL
+  `certificate` varchar(300) NOT NULL,
+  `verifieddoctor` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `logintable`
 --
 
-INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`, `certificate`) VALUES
-(71, 'Suman', 'sumandevkota75@gmail.com', '$2y$10$9YviUTp2bALcZ1/DnONo5.FnP/qwVXegq5VMHtNzaPNkAYry4vdJK', '2023-05-24', 'Male', 'Patient', '2023-05-11 19:49:25', '490648186b9ee6d0bd74d98c746a1bf9', 1, ''),
-(72, 'Suman', 'dssuman525@gmail.com', '$2y$10$m4i7ngIZMdw7vNBX6N6o6.lVZb1bUm7pMclbCPm2rGXMop9doGZBy', '2023-05-12', 'Male', 'Doctor', '2023-05-11 19:50:03', 'a09ca57bdef03ad30d64826a13095684', 1, '2023-05-11-ArpanPokhrel-Unit3.pdf');
+INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`, `certificate`, `verifieddoctor`) VALUES
+(74, 'hell', 'dssuman525@gmail.com', '$2y$10$q4Ag76iyvnw2c1SXu9Ui8ORmbOYkFtu5M.J81RwQBBk/HGcDQ7agO', '2023-05-04', 'Male', 'Doctor', '2023-05-13 19:31:29', '80081ef0188d90e7f6577c4e6fa82af2', 1, '2023-05-11-SumanDevkota-Unit3.pdf', 0),
+(75, 'Suman', 'sumandevkota75@gmail.com', '$2y$10$hntgqS2//zcwdvH2QvJ6peM7g6AJRvHgh2VbrPT43oUVCMHpKdjZm', '2023-05-04', 'Male', 'Admin', '2023-05-14 19:14:53', '99c989991322bf6a75d1af13324fe9fe', 1, '', 1);
 
 --
 -- Indexes for dumped tables
@@ -67,7 +68,7 @@ ALTER TABLE `logintable`
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

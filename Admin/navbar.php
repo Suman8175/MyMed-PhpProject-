@@ -27,7 +27,7 @@
             <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="verify.php">Verify</a>
+            <a class="nav-link" href="DoctorVerify.php">Verify</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="delete.php">Delete</a>
