@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 03:18 PM
+-- Generation Time: May 16, 2023 at 03:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -37,16 +37,18 @@ CREATE TABLE `logintable` (
   `Role` varchar(10) NOT NULL,
   `AccountCreation` datetime NOT NULL DEFAULT current_timestamp(),
   `verificationcode` varchar(255) NOT NULL,
-  `isverified` int(11) NOT NULL DEFAULT 0
+  `isverified` int(11) NOT NULL DEFAULT 0,
+  `certificate` varchar(300) NOT NULL,
+  `verifieddoctor` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `logintable`
 --
 
-INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`) VALUES
-(32, 'Suman', 'evkota75@gmail.com', '$2y$10$miWwRlMxG0GsScmD2bZ4b.EcbItZ81MK4lQkIhrGDYEeDRJ6wtZY6', '2023-05-03', 'Male', 'Patient', '2023-05-08 14:32:02', 'a197f1fd3d2bc31868f70f25c208ab22', 0),
-(33, 'Suman', 'sumandevkota75@gmail.com', '$2y$10$LlWHGwEpdkUsfFkzYMQwbenIL1h54LzyoukLHJWmYJSLtvkAMIcP.', '2023-05-12', 'Male', 'Patient', '2023-05-08 14:36:56', '752bf4dbc6159a0b56234801bf611b90', 0);
+INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`, `certificate`, `verifieddoctor`) VALUES
+(74, 'hell', 'dssuman525@gmail.com', '$2y$10$q4Ag76iyvnw2c1SXu9Ui8ORmbOYkFtu5M.J81RwQBBk/HGcDQ7agO', '2023-05-04', 'Male', 'Doctor', '2023-05-13 19:31:29', '80081ef0188d90e7f6577c4e6fa82af2', 1, '2023-05-11-SumanDevkota-Unit3.pdf', 0),
+(75, 'Suman', 'sumandevkota75@gmail.com', '$2y$10$hntgqS2//zcwdvH2QvJ6peM7g6AJRvHgh2VbrPT43oUVCMHpKdjZm', '2023-05-04', 'Male', 'Admin', '2023-05-14 19:14:53', '99c989991322bf6a75d1af13324fe9fe', 1, '', 1);
 
 --
 -- Indexes for dumped tables
@@ -66,7 +68,7 @@ ALTER TABLE `logintable`
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
