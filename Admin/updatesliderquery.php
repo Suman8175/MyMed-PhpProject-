@@ -4,7 +4,7 @@ $sliderheading="";
     $slidercontent="";
     $sliderimage="";
 if ($_SERVER["REQUEST_METHOD"]=="POST" ){
-    require('../connection.php');
+    require('../connection.php'); 
     $sliderid = $_POST['sliderid'];
     $sliderheading = $_POST['title'];
     $slidercontent = $_POST['paragraph'];
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
        header("Location:addslider.php");
 
 }
-
+ 
 }
 
 ?>

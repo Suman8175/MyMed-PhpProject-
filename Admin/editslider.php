@@ -11,7 +11,7 @@
 
   </head>
   <body>
-  <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data">
+  
     <?php
 
     $sliderid="";
@@ -33,10 +33,11 @@
       }
 }
 ?>
+  <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data">
   
   <div class="mb-3">
-    <label for="id" class="form-label">Title</label>
-    <input type="text" name="sliderid" class="form-control" id="id" value="<?php echo $sliderid ?>" disabled>
+    <label for="title" class="form-label">Title</label>
+    <input type="hidden" name="sliderid" class="form-control" id="title"  value="<?php echo $sliderid?>">
   </div>
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
@@ -67,11 +68,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        Are you sure you want to Update?Once update it will not reverse.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="submitForm()">Display code</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Confrim</button>
       </div>
     </div>
   </div>

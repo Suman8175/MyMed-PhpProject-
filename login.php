@@ -13,14 +13,17 @@
             $user = mysqli_fetch_assoc($result);
             if ($user["Role"] == "Patient" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1) {
                 $_SESSION['username'] = $useremail;
+                $_SESSION['id'] = $user["LoginId"];
                 header("Location:Patient/appointdoctor.php");
             }
             elseif ($user["Role"] == "Doctor" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["verifieddoctor"] == 1) {
                 $_SESSION['username'] = $useremail;
+                $_SESSION['id'] = $user["LoginId"];
                 header("Location:Doctor/docwelcome.php");
             }
             elseif ($user["Role"] == "Admin" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1) {
                 $_SESSION['username'] = $useremail;
+                $_SESSION['id'] = $user["LoginId"];
                 header("Location:Admin/dashboard.php");
             }
             else{

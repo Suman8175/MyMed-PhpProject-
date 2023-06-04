@@ -14,7 +14,7 @@ $showsucess="";
     </div>';
     $_SESSION['sucessstatus']=$showsucess;
      // header is used to redirect to another  file.
-    header("location:index.php");
+    header("location:signuploginpage.php");
         }
        
 if ($_SERVER['REQUEST_METHOD']=="POST"){
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
         $_SESSION['status']=$showalert;
         // header is used to redirect to another php file.Suppose i have only backend work in this file and html files in 
         // index.html so after a certain work is done through this php file it will redirect it into index.html 
-        header("location:index.php");
+        header("location:signuploginpage.php");
     }
     else{
         if ($ConfirmPassword==$Password){
@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             //To check if both query as well as email is gone then signup shall be sucessful and user shall be rediect to verify his account
                 if ($result){
                  sendmail($Email,$vcode);
-               
-                    //Till here
+                    
+
                 }
                     else{
                         
@@ -80,13 +80,16 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
                  $resultdoctor=mysqli_query($conn,$sql);
                  move_uploaded_file($tempfile,$folder); 
                 if($resultdoctor ){
+                    $newid=mysqli_insert_id($conn);
+                    $sqlre="INSERT INTO `doctordetails` (`Did`, `LoginId`)
+                    VALUES (NULL, '$newid')";
+                    $res2=mysqli_query($conn,$sqlre);
                     sendmail($Email,$vcode);
+                    mysqli_close($conn);
                     $showsucess='<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Congrats!</strong> Now your account needs to be verified by admin.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
-                 
-
                 }
                 else{
                     echo "Not nice";
@@ -109,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
                     </div>';
                     $_SESSION['status']=$showalert;
                      // header is used to redirect to another file.
-                    header("location:index.php");
+                    header("location:signuploginpage.php");
                 }
             }
         }

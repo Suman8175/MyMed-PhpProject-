@@ -15,8 +15,8 @@ require 'phpmailer/src/SMTP.php';
     $mail->isSMTP(); 
     $mail->Host  = 'smtp.gmail.com'; 
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'iamarpan15@gmail.com';  
-    $mail->Password   = 'obwiaqrfbzyzzoug'; 
+    $mail->Username   = 'dssuman525@gmail.com';  
+    $mail->Password   = 'khinayteolqapwyp'; 
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
     //setFrom is for your email address through which you send mail
@@ -34,12 +34,12 @@ require 'phpmailer/src/SMTP.php';
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
     $_SESSION['mailstatus']=$showmail;
-    header("location:index.php");
+    header("location:signuploginpage.php");
 
     }
     catch(Exception $e){
         echo "Message could not be send";
-        header("location:index.php");
+        header("location:signuploginpage.php");
     }
 
   

@@ -25,7 +25,7 @@
   <div class="container-fluid">
     <a class="navbar-brand ms-5" style="font-family: 'Dancing Script', cursive; font-size:24px;">MyMed</a>
     <form class="d-flex">
-    <a href="indexchanged.php" class="me-4 link-secondary">
+    <a href="signuploginpage.php" class="me-4 link-secondary">
     <i class="fa-sharp fa-solid fa-hotel"></i>
 </a>
     </form>
