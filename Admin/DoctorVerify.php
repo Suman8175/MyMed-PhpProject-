@@ -53,7 +53,7 @@ require 'navbar.php';
             require '../connection.php';
   $sql="SELECT *
   FROM logintable
-  WHERE Role = 'Doctor' AND isverified = '1'  AND verifieddoctor = '0'";
+  WHERE Role = 'Doctor' AND isverified = '1'  AND verifieddoctor = '0'  AND userdelete = '0'";
 $res=mysqli_query($conn,$sql);
 
   while($answer=mysqli_fetch_array($res)){

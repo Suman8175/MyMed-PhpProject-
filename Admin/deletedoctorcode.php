@@ -1,11 +1,11 @@
 <?php
 session_start();
 $showmessage="";
-     if (isset($_GET['did']) ){
-        $LogId= $_GET['did'];
+if ($_SERVER['REQUEST_METHOD']=="POST"){
+        $LogId= $_POST['LoginId'];
         require '../connection.php';
-        $query="DELETE FROM logintable
-        WHERE LoginId = '$LogId'"; 
+        echo $LogId;
+        /* $query = "UPDATE logintable SET userdelete = '1' WHERE LoginId = '$LogId'";
         $result=mysqli_query($conn,$query);
         if ($result){
             $showmessage='<div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -13,7 +13,7 @@ $showmessage="";
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             $_SESSION['doctordeletedsucessfully']=$showmessage;
-            header("Location:DoctorVerify.php");
-        }
+            header("Location:deleteverifydoctor.php");
+        } */
      }
      ?>

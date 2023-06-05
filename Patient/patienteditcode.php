@@ -10,23 +10,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     $city = $_POST['City'];
     $state = $_POST['state'];
     $house = $_POST['House'];
-    $registration = $_POST['Registration'];
-    $specialization = $_POST['specialization'];
+    $BloodGroup = $_POST['BloodGroup'];
     $mobile = $_POST['Mobile'];
     $imagename=$_FILES["chooseimg"]["name"];
     $tempfile=$_FILES["chooseimg"]["tmp_name"];
      $folder="../profilepicture/".$imagename;
      if (!empty($imagename)) {
      $updateSql = "UPDATE logintable lt
-     JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-     SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
-         dd.HouseNo = '$house', dd.Registration = '$registration', dd.Specialization = '$specialization',
-         dd.Mobile = '$mobile', dd.ProfilePicture = '$imagename'
+     JOIN patientdetails pd ON lt.LoginId = pd.LoginId
+     SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.City = '$city', pd.State = '$state',
+         pd.HouseNo = '$house', pd.BloodGroup = '$BloodGroup',
+         pd.Mobile = '$mobile', pd.ProfilePicture = '$imagename'
      WHERE lt.LoginId = $LoginId";
     $resultquery=mysqli_query($conn,$updateSql);
     move_uploaded_file($tempfile,$folder);
     if ($resultquery){
-        header("Location:doctoredit.php");
+        header("Location:editinfopatient.php");
     }
     else{
         $editerror='<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -34,32 +33,32 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
         $_SESSION['erroredit']=$editerror;
-        header("Location:doctoredit.php");
+        header("Location:editinfopatient.php");
     }
      }
      else{
         $updateSql = "UPDATE logintable lt
-        JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-        SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
-            dd.HouseNo = '$house', dd.Registration = '$registration', dd.Specialization = '$specialization',
-            dd.Mobile = '$mobile'
+        JOIN patientdetails pd ON lt.LoginId = pd.LoginId
+        SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.City = '$city', pd.State = '$state',
+            pd.HouseNo = '$house', pd.BloodGroup = '$BloodGroup',
+            pd.Mobile = '$mobile'
         WHERE lt.LoginId = $LoginId";
-
+    
 
     $resultquery = mysqli_query($conn, $updateSql);
 
+
     if ($resultquery){
-        header("Location:doctoredit.php");
+        header("Location:editinfopatient.php");
     }
     else{
-        echo  mysqli_error($conn);
         $editerror='<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Not done!</strong> Something is wrong.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
         $_SESSION['erroredit']=$editerror;
-        // header("Location:doctoredit.php");
+         header("Location:editinfopatient.php");
     }
 }
-    }
+}
 ?>

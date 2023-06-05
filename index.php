@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>MyMed</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +64,8 @@
             <div class="carousel-item <?= $activates; ?>">
       <img src=<?= "Admin/".$row['sliderimage'] ?> class="d-block w-100 h-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5><?= $row['sliderheading'] ?></h5>
-        <p><?= $row['sliderparagraph'] ?></p>
+        <h5 style="color:white;"><?= $row['sliderheading'] ?></h5>
+        <p style="color:white;"><?= $row['sliderparagraph'] ?></p>
       </div>
     </div>
     <?php $i++; } ?>

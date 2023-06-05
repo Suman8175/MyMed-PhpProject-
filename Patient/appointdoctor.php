@@ -18,7 +18,7 @@
       
 
 <?php
-require 'welcome.php';
+require 'nabbar.php';
 ?>
 <br>
 <br>
@@ -30,36 +30,6 @@ require 'welcome.php';
           <h2>Blanche Pearson</h2>
           <span>Sales Manager</span>
           <br>
-          <button type="button">Appoint Me</button>
-        </li>
-        <li class="card">
-          <div class="img"><img src="images/img-2.jpg" alt="img" draggable="false"></div>
-          <h2>Joenas Brauers</h2>
-          <span>Web Developer</span>
-          <button type="button">Appoint Me</button>
-        </li>
-        <li class="card">
-          <div class="img"><img src="images/img-3.jpg" alt="img" draggable="false"></div>
-          <h2>Lariach French</h2>
-          <span>Online Teacher</span>
-          <button type="button">Appoint Me</button>
-        </li>
-        <li class="card">
-          <div class="img"><img src="images/img-4.jpg" alt="img" draggable="false"></div>
-          <h2>James Khosravi</h2>
-          <span>Freelancer</span>
-          <button type="button">Appoint Me</button>
-        </li>
-        <li class="card">
-          <div class="img"><img src="images/img-5.jpg" alt="img" draggable="false"></div>
-          <h2>Kristina Zasiadko</h2>
-          <span>Bank Manager</span>
-          <button type="button">Appoint Me</button>
-        </li>
-        <li class="card">
-          <div class="img"><img src="images/img-6.jpg" alt="img" draggable="false"></div>
-          <h2>Donald Horton</h2>
-          <span>App Designer</span>
           <button type="button">Appoint Me</button>
         </li>
       </ul>

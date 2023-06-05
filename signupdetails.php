@@ -62,6 +62,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             $result=mysqli_query($conn,$sql);
             //To check if both query as well as email is gone then signup shall be sucessful and user shall be rediect to verify his account
                 if ($result){
+                    $newid=mysqli_insert_id($conn);
+                    $sqlre="INSERT INTO `patientdetails` (`Pid`, `LoginId`)
+                    VALUES (NULL, '$newid')";
+                    $res2=mysqli_query($conn,$sqlre);
                  sendmail($Email,$vcode);
                     
 

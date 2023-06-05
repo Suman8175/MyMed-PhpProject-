@@ -11,17 +11,17 @@
         $noofrows=mysqli_num_rows($result);
         if ($noofrows == 1){
             $user = mysqli_fetch_assoc($result);
-            if ($user["Role"] == "Patient" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1) {
+            if ($user["Role"] == "Patient" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["userdelete"] == 0) {
                 $_SESSION['username'] = $useremail;
                 $_SESSION['id'] = $user["LoginId"];
                 header("Location:Patient/appointdoctor.php");
             }
-            elseif ($user["Role"] == "Doctor" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["verifieddoctor"] == 1) {
+            elseif ($user["Role"] == "Doctor" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["verifieddoctor"] == 1 && $user["userdelete"] == 0) {
                 $_SESSION['username'] = $useremail;
                 $_SESSION['id'] = $user["LoginId"];
                 header("Location:Doctor/docwelcome.php");
             }
-            elseif ($user["Role"] == "Admin" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1) {
+            elseif ($user["Role"] == "Admin" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["userdelete"] == 0) {
                 $_SESSION['username'] = $useremail;
                 $_SESSION['id'] = $user["LoginId"];
                 header("Location:Admin/dashboard.php");
@@ -32,7 +32,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
                 $_SESSION['nosigned']=$showmessage;
-                header("Location:index.php");
+                header("Location:signuploginpage.php");
             }
         }
         else{

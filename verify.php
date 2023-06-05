@@ -37,7 +37,7 @@ if (isset($_GET['email']) && isset($_GET['verification'])){
                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                    </div>';
                    $_SESSION['emailnotverified']=$verifymessage;
-                   header("location:index.php");
+                   header("location:signuploginpage.php");
          }
 
       }
@@ -47,7 +47,7 @@ if (isset($_GET['email']) && isset($_GET['verification'])){
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
                 $_SESSION['emailalreadyuse']=$verifymessage;
-                header("location:index.php");
+                header("location:signuploginpage.php");
       }
    }
    

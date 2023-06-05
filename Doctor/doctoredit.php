@@ -6,6 +6,10 @@ $Loginid="";
 if (isset($_SESSION['id'])){
   $Loginid=$_SESSION['id'];
 }
+if (isset($_SESSION['erroredit'])){
+  echo $_SESSION['erroredit'];
+  unset($_SESSION['erroredit']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,10 +31,11 @@ $specialization="";
 $mobile="";
 $profilePicture ="";
 require ('../connection.php');
-$sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.ProfilePicture
+/* $sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.ProfilePicture
 FROM logintable lt
 JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-WHERE lt.LoginId = '$Loginid'";
+WHERE lt.LoginId = '$Loginid'"; */
+
 $result=mysqli_query($conn,$sql3);
 while($row=mysqli_fetch_array($result)){
   $username = $row['Username'];
@@ -41,10 +46,10 @@ while($row=mysqli_fetch_array($result)){
   $registration = $row['Registration'];
   $specialization = $row['Specialization'];
   $mobile = $row['Mobile'];
-  $profilePicture = "../".$row['ProfilePicture'];
+  $profilePicture = "../profilepicture/".$row['ProfilePicture'];
 }
 ?>
-<form class="row g-3" action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
+<form id="editForm" class="row g-3" action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
 <div class="col-md-2">
     <label for="chooseimg" class="form-label">Choose Image</label>
     <input type="file" name="chooseimg" id="chooseimg">
@@ -61,7 +66,8 @@ while($row=mysqli_fetch_array($result)){
 
   <div class="col-md-6">
     <label for="Username" class="form-label">Username</label>
-    <input type="text" class="form-control" name= "Username" id="Username" value="<?php echo $username?>">
+    <input type="text" class="form-control" name= "username" id="Username" value="<?php echo $username?>">
+    <input type="hidden" class="form-control" name= "Loginid" id="Username" value="<?php echo $Loginid?>">
   </div>
   <div class="col-md-6">
     <label for="date" class="form-label">D.O.B</label>
@@ -73,7 +79,7 @@ while($row=mysqli_fetch_array($result)){
   </div>
   <div class="col-md-4">
     <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
+    <select name="state" id="inputState" class="form-select">
       <option value= "Province1" <?php if ($state == "Province1") echo " selected"; ?>>Province1</option>
       <option value= "Province2" <?php if ($state == "Province2") echo " selected"; ?>>Province2</option>
       <option value= "Province3" <?php if ($state == "Province3") echo " selected"; ?>>Province3</option>
@@ -95,7 +101,7 @@ while($row=mysqli_fetch_array($result)){
   </div>
   <div class="col-md-6">
     <label for="Doctorreg" class="form-label">Doctor Specialization</label>
-    <select id="Doctorreg" class="form-select">
+    <select name="specialization" id="Doctorreg" class="form-select">
         <option value= "General" <?php if ($state == "General") echo " selected"; ?>>General</option>
         <option value= "Dental" <?php if ($state == "Dental") echo " selected"; ?>>Dental</option>
         <option value= "Neuro" <?php if ($state == "Neuro") echo " selected"; ?>>Neuro</option>     
@@ -125,7 +131,9 @@ while($row=mysqli_fetch_array($result)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" form="deleteForm" class="btn btn-danger">Yes</button>
+        <!-- <button type="submit" form="deleteForm" class="btn btn-danger">Yes</button> -->
+        <button type="button" class="btn btn-danger" onclick="submitForm()">Yes</button>
+
       </div>
     </div>
   </div>
@@ -146,5 +154,11 @@ while($row=mysqli_fetch_array($result)){
     reader.readAsDataURL(file);
   });
 </script>
+<script>
+    function submitForm() {
+        document.getElementById("editForm").submit();
+    }
+</script>
+
 </body>
 </html>
