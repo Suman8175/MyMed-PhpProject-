@@ -31,10 +31,10 @@ $specialization="";
 $mobile="";
 $profilePicture ="";
 require ('../connection.php');
-/* $sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.ProfilePicture
+$sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.ProfilePicture
 FROM logintable lt
 JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-WHERE lt.LoginId = '$Loginid'"; */
+WHERE lt.LoginId = '$Loginid'";
 
 $result=mysqli_query($conn,$sql3);
 while($row=mysqli_fetch_array($result)){
