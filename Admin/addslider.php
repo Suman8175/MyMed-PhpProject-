@@ -21,8 +21,16 @@ if (isset($_SESSION['sliderdetails'])){
     <style>
     .custom-top-spacing {
     margin-top: 70px!important; /* Adjust the value as needed */
-    </style>
   }
+  .round-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+    </style>
+  
   </head>
   <body>
   <div class="container mt-5 custom-top-spacing">
@@ -67,21 +75,15 @@ if (isset($_SESSION['sliderdetails'])){
   FROM slidertable";
 $res=mysqli_query($conn,$sql);
   while($answer=mysqli_fetch_array($res)){
-    $imageLink= $answer['sliderimage'];
+    $imageLink= "sliderimages/".$answer['sliderimage'];
    echo "<tr>
-  <td>".$answer['sliderid']."</td>
+  <td class='slid_id'>".$answer['sliderid']."</td>
   <td>".$answer['sliderheading']."</td>
    <td>".$answer['sliderparagraph']."</td>
    <td><img src='".$imageLink."' alt='Image'  style='width: 100px; height: auto;'></td>
    <td><a href='editslider.php?sliderid=".$answer['sliderid']."'>Edit</a></td>
    <td>
-   <form  id='deleteForm' action='deleteslider.php' method='post'>
-   <input type='hidden' name='sliderid' value=".$answer['sliderid'].">
-  <button type='button' class='btn btn-link deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-sliderid=".$answer['sliderid'].">Delete</button>
-
-
-  </form>
-  </div>
+  <button type='button' class='btn btn-link deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-sliderid='" . $answer['sliderid'] ."'>Delete</button>
   </td>
    </tr>";
   }
@@ -99,9 +101,11 @@ $res=mysqli_query($conn,$sql);
         <p>Are you sure you want to delete?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" form="deleteForm" class="btn btn-danger">Yes</button>
-        <!-- <a href="deleteslider.php?sliderid=<?php echo $sliderid; ?>"  form="deleteForm" class="btn btn-danger">Delete</a> -->
+      <form id="deleteForm" action="deleteslider.php" method="POST">
+                    <input type="hidden" id="sliderIdInput" name="sliderid">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
       </div>
     </div>
   </div>
@@ -110,6 +114,7 @@ $res=mysqli_query($conn,$sql);
     <script>
         $(document).ready(function () {
     $('#slidertable').DataTable();
+
 });
 </script>
 <script>
@@ -121,6 +126,7 @@ $res=mysqli_query($conn,$sql);
     imagediv.innerHTML='';
     newimg.src=image;
     newimg.width="300";
+    newimg.classList.add("round-image");
     imagediv.appendChild(newimg);
   }
   </script>
@@ -133,10 +139,14 @@ $res=mysqli_query($conn,$sql);
 
 <!-- DeleteModal -->
 <script>
-  $(document).on('click', '.deleteButton', function () {
-    var sliderid = $(this).data('sliderid');
-    $('#sliderIdValue').text(sliderid);
-  });
+    var deleteButtons = document.getElementsByClassName("deleteButton");
+    for (var i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", function() {
+            var sliderId = this.getAttribute("data-sliderid");
+            document.getElementById("sliderIdInput").value = sliderId;
+        });
+    }
 </script>
+
   </body>
 </html>

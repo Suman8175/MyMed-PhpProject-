@@ -29,14 +29,21 @@
         $sliderid=$answer['sliderid'];
         $sliderheading= $answer['sliderheading'];
         $sliderparagraph=$answer['sliderparagraph'];
-        $sliderimage=$answer['sliderimage'];
+        $sliderimage="sliderimages/".$answer['sliderimage'];
       }
 }
 ?>
   <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data">
   
+  <div class="col-md-6">
+  <div class="d-flex justify-content-center">
+  <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px; border: 2px solid blue;">
+      <img id="changeimg" src=<?=$sliderimage ?> alt='Image'  class="img-fluid rounded-circle" style="object-fit: cover; width: 100%; height: 100%;">  
+   </div>
+   </div>
+   </div>
+   <input type="file" name="imageFile" id="choosefile"  value="<?php echo $sliderimage ?>">
   <div class="mb-3">
-    <label for="title" class="form-label">Title</label>
     <input type="hidden" name="sliderid" class="form-control" id="title"  value="<?php echo $sliderid?>">
   </div>
   <div class="mb-3">
@@ -47,10 +54,8 @@
     <label for="content" class="form-label">Content</label>
     <input type="text" name="paragraph" class="form-control" id="content"  value="<?php echo $sliderparagraph ?>">
   </div>
-  <div id="file-input">
-      <img src=<?=$sliderimage ?> alt='Image'  style='width: 300px; height: auto'>
-      <input type="file" name="imageFile" id="choosefile"  value="<?php echo $sliderimage ?>">
-   </div>
+
+ 
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  Update
 </button>
@@ -80,6 +85,21 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script>
+  const inputElement = document.getElementById("choosefile");
+  const imageElement = document.getElementById("changeimg");
+
+  inputElement.addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      imageElement.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+</script>
 <script>
     function submitForm() {
       var form = document.querySelector("form");
