@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../bootstrap.php';
+include 'docwelcome.php';
 
 $Loginid="";
 if (isset($_SESSION['id'])){
@@ -49,8 +50,9 @@ while($row=mysqli_fetch_array($result)){
   $profilePicture = "../profilepicture/".$row['ProfilePicture'];
 }
 ?>
-<form id="editForm" class="row g-3" action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
-<div class="col-md-2">
+<br>
+<form id="editForm" class="row g-3 " action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
+<div class="col-md-2 ">
     <label for="chooseimg" class="form-label">Choose Image</label>
     <input type="file" name="chooseimg" id="chooseimg">
   </div>
