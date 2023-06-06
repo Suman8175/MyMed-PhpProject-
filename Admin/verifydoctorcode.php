@@ -1,8 +1,9 @@
 <?php
 session_start();
 $showmessage="";
-     if (isset($_GET['did']) ){
-        $LogId= $_GET['did'];
+if ($_SERVER['REQUEST_METHOD']=="POST"){
+        $LogId= $_POST['LoginId'];
+     
         require '../connection.php';
         $query="select * from `logintable` WHERE LoginId = '$LogId'"; 
         $result=mysqli_query($conn,$query);

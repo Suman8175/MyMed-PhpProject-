@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             $_SESSION['doctordeletedsucessfully']=$showmessage;
-            header("Location:Doctorverify.php");
+            header("Location:deleteverifydoctor.php");
         }
      }
      ?>

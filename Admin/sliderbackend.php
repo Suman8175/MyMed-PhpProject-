@@ -6,10 +6,10 @@ include('../bootstrap.php');
    if( $_SERVER['REQUEST_METHOD']=="POST"){
     $title=$_POST['title'];
     $content=$_POST['paragraph'];
-    $imagename=$_FILES["imageFile"]["name"];
-    $tempfile=$_FILES["imageFile"]["tmp_name"];
+    $imagename=$_FILES["imageFileslider"]["name"];
+    $tempfile=$_FILES["imageFileslider"]["tmp_name"];
      $folder="sliderimages/".$imagename;
-    if (isset($_FILES["imageFile"]) && $_FILES["imageFile"]["error"] == 0) {
+    if (isset($_FILES["imageFileslider"]) && $_FILES["imageFileslider"]["error"] == 0) {
             // File upload successful
           
             $sql="INSERT INTO `slidertable` (`sliderid`, `sliderheading`, `sliderparagraph`,`sliderimage`) 

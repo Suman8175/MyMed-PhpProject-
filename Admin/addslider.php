@@ -44,7 +44,7 @@ if (isset($_SESSION['sliderdetails'])){
     <input type="text" name="paragraph" class="form-control" id="content">
   </div>
   <div id="file-input">
-      <input type="file" name="imageFile" id="choosefile"  onchange="getImagePreview(event)">
+      <input type="file" name="imageFileslider" id="choosefile"  onchange="getImagePreview(event)">
       <div class="container">
   <div class="row">
     <div class="col d-flex justify-content-center align-items-center">

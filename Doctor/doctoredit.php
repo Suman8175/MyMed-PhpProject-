@@ -32,7 +32,7 @@ $specialization="";
 $mobile="";
 $profilePicture ="";
 require ('../connection.php');
-$sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.ProfilePicture
+$sql3= "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.starttime,dd.endtime,dd.ProfilePicture
 FROM logintable lt
 JOIN doctordetails dd ON lt.LoginId = dd.LoginId
 WHERE lt.LoginId = '$Loginid'";
@@ -48,10 +48,12 @@ while($row=mysqli_fetch_array($result)){
   $specialization = $row['Specialization'];
   $mobile = $row['Mobile'];
   $profilePicture = "../profilepicture/".$row['ProfilePicture'];
+  $starttime = $row['starttime'];
+  $endtime = $row['endtime'];
 }
 ?>
 <br>
-<form id="editForm" class="row g-3 " action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
+<form id="editForm" class="row g-3 mt-5" action="doctoreditcode.php" method="POST" enctype="multipart/form-data" >
 <div class="col-md-2 ">
     <label for="chooseimg" class="form-label">Choose Image</label>
     <input type="file" name="chooseimg" id="chooseimg">
@@ -112,6 +114,34 @@ while($row=mysqli_fetch_array($result)){
   <div class="col-md-6">
     <label for="mobileno" class="form-label">Mobile No.</label>
     <input type="tel" class="form-control" name="Mobile" id="mobileno" pattern="[0-9]+" value="<?php echo $mobile?>">
+  </div>
+  <div class="col-md-2">
+    <label for="starttime" class="form-label">StartTime</label>
+    <select name="starttime" id="starttime" class="form-select">
+  <?php
+  for ($i = 0; $i < 25; $i++) {
+    $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+    $optionValue = $hour . ':00:00';
+    $selected = ($starttime == $optionValue) ? 'selected' : '';
+    echo "<option value='$optionValue' $selected>$hour:00</option>";
+  }
+  ?>  
+</select>
+
+
+  </div>
+  <div class="col-md-2">
+    <label for="endtime" class="form-label">EndTime</label>
+    <select name="endtime" id="endtime" class="form-select">
+  <?php
+  for ($i = 0; $i < 25; $i++) {
+    $hourend = str_pad($i, 2, '0', STR_PAD_LEFT);
+    $optionValueend = $hourend . ':00:00';
+    $selectedval = ($endtime == $optionValueend) ? 'selected' : '';
+    echo "<option value='$optionValueend' $selectedval>$hourend:00</option>";
+  }
+  ?>  
+</select>
   </div>
   <div class="col-md-4">
   <div class="text-center">

@@ -16,12 +16,16 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     $imagename=$_FILES["chooseimg"]["name"];
     $tempfile=$_FILES["chooseimg"]["tmp_name"];
      $folder="../profilepicture/".$imagename;
+    $starttime=$_POST['starttime'];
+    $endtime=$_POST['endtime'];
+  
+
      if (!empty($imagename)) {
      $updateSql = "UPDATE logintable lt
      JOIN doctordetails dd ON lt.LoginId = dd.LoginId
      SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
          dd.HouseNo = '$house', dd.Registration = '$registration', dd.Specialization = '$specialization',
-         dd.Mobile = '$mobile', dd.ProfilePicture = '$imagename'
+         dd.Mobile = '$mobile', dd.ProfilePicture = '$imagename',dd.starttime='$starttime',dd.endtime='$endtime'
      WHERE lt.LoginId = $LoginId";
     $resultquery=mysqli_query($conn,$updateSql);
     move_uploaded_file($tempfile,$folder);
@@ -42,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
         JOIN doctordetails dd ON lt.LoginId = dd.LoginId
         SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
             dd.HouseNo = '$house', dd.Registration = '$registration', dd.Specialization = '$specialization',
-            dd.Mobile = '$mobile'
+            dd.Mobile = '$mobile',dd.starttime='$starttime',dd.endtime='$endtime'
         WHERE lt.LoginId = $LoginId";
 
 

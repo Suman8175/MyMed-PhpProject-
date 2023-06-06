@@ -81,7 +81,7 @@
     }
     ?>
             <div class="carousel-item <?= $activates; ?>">
-      <img src=<?= "Admin/".$row['sliderimage'] ?> class="d-block w-100 h-100" alt="...">
+      <img src=<?= "Admin/sliderimages/".$row['sliderimage'] ?> class="d-block w-100 h-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5 style="color:white;font-weight: lighter;font-size: 42px"><?= $row['sliderheading'] ?></h5>
         <p style="color:white; font-weight:600px!important;font-size: 24px;"><?= $row['sliderparagraph'] ?></p>

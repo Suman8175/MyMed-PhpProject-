@@ -63,13 +63,61 @@ $res=mysqli_query($conn,$sql);
   <td>".$answer['Username']."</td>
    <td>".$answer['Email']."</td>
     <td><a href='viewfiles.php?did=".$answer['LoginId']."'>View</a></td>
-    <td><a href='verifydoctorcode.php?did=".$answer['LoginId']."'>Verify</a></td>
-    <td><a href='deletedoctorcode.php?did=".$answer['LoginId']."'>Delete</a></td>
+  <td>
+    <button type='button' class='btn btn-link verifyButton' data-bs-toggle='modal' data-bs-target='#verifyModal' data-LoginId='" . $answer['LoginId'] ."'>Verify</button></td>
+    <td> <button type='button' class='btn btn-link deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-vLoginId='" . $answer['LoginId'] ."'>Delete</button></td>
+   
    </tr>";
   }
   ?>
 
     </table>
+
+
+    <div class="modal fade" id="verifyModal" tabindex="-1" aria-labelledby="verifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verifyModalLabel">Verify Doctor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to verify?</p>
+      </div>
+      <div class="modal-footer">
+      <form id="verifyForm" action="verifydoctorcode.php" method="POST">
+                    <input type="hidden" id="LoginIdInput" name="LoginId">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DoctorDeleteModal -->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Verify Doctor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the doctor?</p>
+      </div>
+      <div class="modal-footer">
+      <form id="verifyForm" action="deletedoctorcode.php" method="POST">
+                    <input type="hidden" id="LoginIdInputv" name="LoginId">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -79,6 +127,24 @@ $res=mysqli_query($conn,$sql);
     $('#example').DataTable();
 });
     </script>
+<script>
+    var verifyButtons = document.getElementsByClassName("verifyButton");
+    for (var i = 0; i < verifyButtons.length; i++) {
+        verifyButtons[i].addEventListener("click", function() {
+            var LoginId = this.getAttribute("data-LoginId");
+            document.getElementById("LoginIdInput").value = LoginId;
+        });
+    }
+</script>
+<script>
+    var deleteButtons = document.getElementsByClassName("deleteButton");
+    for (var j = 0; j < deleteButtons.length; j++) {
+        deleteButtons[j].addEventListener("click", function() {
+            var LoginId = this.getAttribute("data-vLoginId");
+            document.getElementById("LoginIdInputv").value = LoginId;
+        });
+    }
+</script>
 
 <body>
     </html>
