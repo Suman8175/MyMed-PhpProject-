@@ -15,65 +15,34 @@
 </head>
 <body>
   <?php 
+  include '../bootstrap.php';
   include 'nabbar.php';
+  require '../connection.php';
 ?>
 
   <section class="swiper mySwiper">
 
     <div class="swiper-wrapper">
-
+<?php
+    $sqlsi="SELECT lt.`LoginId`,  lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile`  FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE lt.`userdelete` = 0 AND lt.`isverified` = 1 AND
+    lt.`verifieddoctor` = 1";
+    $result=mysqli_query($conn,$sqlsi);
+    foreach($result as $row){ 
+?>
       <div class="card swiper-slide">
         <div class="card__image">
-          <img src="../picture/imgdo.jpg" alt="card image">
+          <img src="<?= "../profilepicture/".$row['ProfilePicture'];?>" alt="card image">
         </div>
 
         <div class="card__content">
-          <span class="card__title">Web Designer</span>
-          <span class="card__name">Vanessa Martinez</span>
-          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
-          <button class="card__btn">View More</button>
+          <span class="card__title">Name:<?= $row['Username']?></span>
+          <span class="card__name">Specialist:<?= $row['Specialization']?></span>
+          <input type= "text" value="<?= $row['LoginId']?>">
+          <p class="card__text"><?= $row['Mobile']?></p>
+          <button class="card__btn">Appoint</button>
         </div>
       </div>
-
-      <div class="card swiper-slide">
-        <div class="card__image">
-          <img src="/images/user2.jpg" alt="card image">
-        </div>
-
-        <div class="card__content">
-          <span class="card__title">Ui Designer</span>
-          <span class="card__name">Sarah Bowen</span>
-          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
-          <button class="card__btn">View More</button>
-        </div>
-      </div>
-
-      <div class="card swiper-slide">
-        <div class="card__image">
-          <img src="/images/user3.jpg" alt="card image">
-        </div>
-
-        <div class="card__content">
-          <span class="card__title">Web Developer</span>
-          <span class="card__name">David Murphy</span>
-          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
-          <button class="card__btn">View More</button>
-        </div>
-      </div>
-
-      <div class="card swiper-slide">
-        <div class="card__image">
-          <img src="/images/user4.jpg" alt="card image">
-        </div>
-
-        <div class="card__content">
-          <span class="card__title">Mobile Designer</span>
-          <span class="card__name">Kelsey West</span>
-          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
-          <button class="card__btn">View More</button>
-        </div>
-      </div>
-
+      <?php } ?>
     </div>
   </section>
 
