@@ -1,43 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>appoint doctor</title>
-    <link rel="stylesheet" href="../css/doctorappoitment.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fontawesome Link for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="../javascript/script.js" defer></script>
+    <title>Appoint Doctor</title>
 
-  </head>
-  <body>
-      
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
-<?php
-require 'nabbar.php';
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/appointdoctor.css">
+    
+</head>
+<body>
+  <?php 
+  include 'nabbar.php';
 ?>
-<br>
-<br>
-<div class="wrapper">
-      <i id="left" class="fa-solid fa-angle-left"></i>
-      <ul class="carousel">
-        <li class="card">
-          <div class="img"><img src="../838517.png" alt="img" draggable="false"></div>
-          <h2>Blanche Pearson</h2>
-          <span>Sales Manager</span>
-          <br>
-          <button type="button">Appoint Me</button>
-        </li>
-      </ul>
-      <i id="right" class="fa-solid fa-angle-right"></i>
+
+  <section class="swiper mySwiper">
+
+    <div class="swiper-wrapper">
+
+      <div class="card swiper-slide">
+        <div class="card__image">
+          <img src="../picture/imgdo.jpg" alt="card image">
+        </div>
+
+        <div class="card__content">
+          <span class="card__title">Web Designer</span>
+          <span class="card__name">Vanessa Martinez</span>
+          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+          <button class="card__btn">View More</button>
+        </div>
+      </div>
+
+      <div class="card swiper-slide">
+        <div class="card__image">
+          <img src="/images/user2.jpg" alt="card image">
+        </div>
+
+        <div class="card__content">
+          <span class="card__title">Ui Designer</span>
+          <span class="card__name">Sarah Bowen</span>
+          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+          <button class="card__btn">View More</button>
+        </div>
+      </div>
+
+      <div class="card swiper-slide">
+        <div class="card__image">
+          <img src="/images/user3.jpg" alt="card image">
+        </div>
+
+        <div class="card__content">
+          <span class="card__title">Web Developer</span>
+          <span class="card__name">David Murphy</span>
+          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+          <button class="card__btn">View More</button>
+        </div>
+      </div>
+
+      <div class="card swiper-slide">
+        <div class="card__image">
+          <img src="/images/user4.jpg" alt="card image">
+        </div>
+
+        <div class="card__content">
+          <span class="card__title">Mobile Designer</span>
+          <span class="card__name">Kelsey West</span>
+          <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+          <button class="card__btn">View More</button>
+        </div>
+      </div>
+
     </div>
+  </section>
 
+<!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
 
 </body>
 </html>
