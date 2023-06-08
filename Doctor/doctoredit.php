@@ -4,8 +4,8 @@ include '../bootstrap.php';
 include 'docwelcome.php';
 
 $Loginid = "";
-if (isset($_SESSION['id'])) {
-  $Loginid = $_SESSION['id'];
+if (isset($_SESSION['docid'])) {
+  $Loginid = $_SESSION['docid'];
 }
 if (isset($_SESSION['erroredit'])) {
   echo $_SESSION['erroredit'];
@@ -189,13 +189,13 @@ WHERE lt.LoginId = '$Loginid'";
                           <div class="form-outline">
                             <label for="Doctorreg" class="form-label">Doctor Specialization</label>
                             <select name="specialization" id="Doctorreg" class="form-select">
-                              <option value="General" <?php if ($state == "General")
+                              <option value="General" <?php if ($specialization == "General")
                                 echo " selected"; ?>>General
                               </option>
-                              <option value="Dental" <?php if ($state == "Dental")
+                              <option value="Dental" <?php if ($specialization == "Dental")
                                 echo " selected"
                                 ; ?>>Dental</option>
-                              <option value="Neuro" <?php if ($state == "Neuro")
+                              <option value="Neuro" <?php if ($specialization == "Neuro")
                                 echo " selected";
                               ?>>Neuro</option>
                             </select>

@@ -37,9 +37,11 @@
         <div class="card__content">
           <span class="card__title">Name:<?= $row['Username']?></span>
           <span class="card__name">Specialist:<?= $row['Specialization']?></span>
-          <input type= "text" value="<?= $row['LoginId']?>">
           <p class="card__text"><?= $row['Mobile']?></p>
+          <form action="checkappointment.php" method="POST">
+          <input type= "hidden" name="appid" value="<?= $row['LoginId']?>">
           <button class="card__btn">Appoint</button>
+          </form>
         </div>
       </div>
       <?php } ?>

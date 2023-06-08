@@ -5,22 +5,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     require('../connection.php'); 
     include '../bootstrap.php';
     $LoginId = $_POST['Loginid'];
-    $username = $_POST['username'];
-    $dob = $_POST['date'];
-    $city = $_POST['City'];
-    $state = $_POST['state'];
-    $house = $_POST['House'];
-    $BloodGroup = $_POST['BloodGroup'];
-    $mobile = $_POST['Mobile'];
-    $imagename=$_FILES["chooseimg"]["name"];
-    $tempfile=$_FILES["chooseimg"]["tmp_name"];
+    $username = $_POST['usernamepa'];
+    $dob = $_POST['datepa'];
+    $city = $_POST['Citypa'];
+    $state = $_POST['statepa'];
+    $house = $_POST['Housepa'];
+    $BloodGroup = $_POST['BloodGroupPatient'];
+    $mobile = $_POST['MobileNopa'];
+    $imagename=$_FILES["chooseimgpa"]["name"];
+    $tempfile=$_FILES["chooseimgpa"]["tmp_name"];
      $folder="../profilepicture/".$imagename;
      if (!empty($imagename)) {
      $updateSql = "UPDATE logintable lt
      JOIN patientdetails pd ON lt.LoginId = pd.LoginId
-     SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.City = '$city', pd.State = '$state',
-         pd.HouseNo = '$house', pd.BloodGroup = '$BloodGroup',
-         pd.Mobile = '$mobile', pd.ProfilePicture = '$imagename'
+     SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.PatientCity = '$city', pd.PatientState = '$state',
+         pd.PatientHouseNo = '$house', pd.PatientBloodGroup = '$BloodGroup',
+         pd.PatientMobile = '$mobile', pd.PatientProfilePicture = '$imagename'
      WHERE lt.LoginId = $LoginId";
     $resultquery=mysqli_query($conn,$updateSql);
     move_uploaded_file($tempfile,$folder);
@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
      else{
         $updateSql = "UPDATE logintable lt
         JOIN patientdetails pd ON lt.LoginId = pd.LoginId
-        SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.City = '$city', pd.State = '$state',
-            pd.HouseNo = '$house', pd.BloodGroup = '$BloodGroup',
-            pd.Mobile = '$mobile'
+        SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.PatientCity = '$city', pd.PatientState = '$state',
+            pd.PatientHouseNo = '$house', pd.PatientBloodGroup = '$BloodGroup',
+            pd.PatientMobile = '$mobile'
         WHERE lt.LoginId = $LoginId";
     
 

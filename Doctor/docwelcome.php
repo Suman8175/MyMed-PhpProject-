@@ -2,11 +2,11 @@
 if (!session_id()) session_start();
 $username="";
 $id="";
-if (isset($_SESSION['username'])){
-  $username=$_SESSION['username'];
+if (isset($_SESSION['docusername'])){
+  $username=$_SESSION['docusername'];
 }
-if (isset($_SESSION['id'])){
-  $id=$_SESSION['id'];
+if (isset($_SESSION['docid'])){
+  $id=$_SESSION['docid'];
 }
 
 ?>
