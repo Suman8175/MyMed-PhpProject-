@@ -2,7 +2,9 @@
 session_start();
 include '../bootstrap.php';
 include 'nabbar.php';
-
+echo "<br>";
+echo "<br>";
+echo "<br>";
 $Loginid = "";
 if (isset($_SESSION['patientid'])) {
   $Loginid = $_SESSION['patientid'];

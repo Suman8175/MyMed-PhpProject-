@@ -62,7 +62,7 @@ $res=mysqli_query($conn,$sql);
   <td>".$answer['LoginId']."</td>
   <td>".$answer['Username']."</td>
    <td>".$answer['Email']."</td>
-    <td><a href='viewfiles.php?did=".$answer['LoginId']."'>View</a></td>
+   <td><a href='viewfiles.php?did=".$answer['LoginId']."'>View</a></td>
   <td>
     <button type='button' class='btn btn-link verifyButton' data-bs-toggle='modal' data-bs-target='#verifyModal' data-LoginId='" . $answer['LoginId'] ."'>Verify</button></td>
     <td> <button type='button' class='btn btn-link deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-vLoginId='" . $answer['LoginId'] ."'>Delete</button></td>

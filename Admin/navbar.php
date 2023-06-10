@@ -47,8 +47,8 @@
           </li>
 
           <br>
-          <form class="d-flex" role="submit">
-        <button class="btn btn-outline-success" type="submit">Logout</button>
+          <form class="d-flex" role="submit" action= "adminlogout.php">
+        <button class="btn btn-outline-success"  type="submit">Logout</button>
       </form>
         
         </ul>

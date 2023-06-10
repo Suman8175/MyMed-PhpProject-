@@ -19,10 +19,8 @@
   include 'nabbar.php';
   require '../connection.php';
 ?>
-
   <section class="swiper mySwiper">
-
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" style=" margin-top: 30vh!important;">
 <?php
     $sqlsi="SELECT lt.`LoginId`,  lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile`  FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE lt.`userdelete` = 0 AND lt.`isverified` = 1 AND
     lt.`verifieddoctor` = 1";
