@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    
+    <title>Edit Slider</title>
+    <link rel="stylesheet" href="../css/editslider.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -34,7 +34,6 @@
 }
 ?>
   <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data">
-  
   <div class="col-md-6">
   <div class="d-flex justify-content-center">
   <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px; border: 2px solid blue;">
@@ -42,6 +41,7 @@
    </div>
    </div>
    </div>
+   <div class="edit"><!--edit wala ho-->
    <input type="file" name="imageFile" id="choosefile"  value="<?php echo $sliderimage ?>">
   <div class="mb-3">
     <input type="hidden" name="sliderid" class="form-control" id="title"  value="<?php echo $sliderid?>">
@@ -59,6 +59,7 @@
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  Update
 </button>
+</div>
 </form>
 
 <!-- Button trigger modal -->

@@ -11,6 +11,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/appointdoctor.css">
+    <link rel="stylesheet" href="../css/appoint.css">
+    <link rel="stylesheet" href="../css/admin.css">
     
 </head>
 <body>
@@ -19,8 +21,11 @@
   include 'nabbar.php';
   require '../connection.php';
 ?>
-  <section class="swiper mySwiper">
-    <div class="swiper-wrapper" style=" margin-top: 30vh!important;">
+
+  <section class="swiper mySwiper"><br><br><br>
+  <span class="title">Appoint Doctor</span>
+
+    <div class="swiper-wrapper">
 <?php
     $sqlsi="SELECT lt.`LoginId`,  lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile`  FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE lt.`userdelete` = 0 AND lt.`isverified` = 1 AND
     lt.`verifieddoctor` = 1";
@@ -42,8 +47,10 @@
           </form>
         </div>
       </div>
+      
       <?php } ?>
     </div>
+    <p> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
   </section>
 
 <!-- Swiper JS -->

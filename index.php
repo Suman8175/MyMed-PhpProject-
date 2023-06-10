@@ -43,6 +43,7 @@
        
       </ul>
       <form class="d-flex ms-auto" >
+        <span>Login  &nbsp </span>
       <a href="signuploginpage.php" class="me-4 link-secondary">
     <i class="fa-sharp fa-solid fa-hotel"></i>
 </a>

@@ -12,28 +12,27 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     $house = $_POST['Housepa'];
     $BloodGroup = $_POST['BloodGroupPatient'];
     $mobile = $_POST['MobileNopa'];
-    $imagenames=$_FILES["chooseimgpa"]["name"];
+    $imagename=$_FILES["chooseimgpa"]["name"];
     $tempfile=$_FILES["chooseimgpa"]["tmp_name"];
-     $folder="../profilepicture/".$imagenames;
-     if (!empty($imagenames)) {
+     $folder="../profilepicture/".$imagename;
+     if (!empty($imagename)) {
      $updateSql = "UPDATE logintable lt
      JOIN patientdetails pd ON lt.LoginId = pd.LoginId
      SET lt.Username = '$username', lt.`D.O.B` = '$dob', pd.PatientCity = '$city', pd.PatientState = '$state',
          pd.PatientHouseNo = '$house', pd.PatientBloodGroup = '$BloodGroup',
-         pd.PatientMobile = '$mobile', pd.PatientProfilePicture = '$imagenames'
+         pd.PatientMobile = '$mobile', pd.PatientProfilePicture = '$imagename'
      WHERE lt.LoginId = $LoginId";
     $resultquery=mysqli_query($conn,$updateSql);
     move_uploaded_file($tempfile,$folder);
     if ($resultquery){
         header("Location:editinfopatient.php");
-        echo "Done";
     }
     else{
         $editerror='<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Not done!</strong> Something is wrong.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-        $_SESSION['errorpaedit']=$editerror;
+        $_SESSION['erroredit']=$editerror;
         header("Location:editinfopatient.php");
     }
      }
@@ -57,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
         <strong>Not done!</strong> Something is wrong.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-        $_SESSION['errorpaedit']=$editerror;
+        $_SESSION['erroredit']=$editerror;
          header("Location:editinfopatient.php");
     }
 }

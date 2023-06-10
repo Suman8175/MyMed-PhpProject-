@@ -29,6 +29,7 @@
        
       </ul>
       <form class="d-flex ms-auto" >
+      <span>Login  &nbsp </span>
       <a href="signuploginpage.php" class="me-4 link-secondary">
     <i class="fa-sharp fa-solid fa-hotel"></i>
 </a>
@@ -83,7 +84,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="text-secondary text-uppercase" style="color: red!important; font-weight: bold;">About Us</h6>
                     <h1 class="mb-4">We Are Providing Online Doctor Booking</h1>
-                    <p class="mb-4">Your Health Problems are our problems.</p>
+                    <p class="mb-4">Your Health Problems are our health problems.</p>
                     <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Immediate 24/ 7 emergency services</p>
                     <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>Quality services</p>
                     <p class="fw-medium text-primary"><i class="fa fa-check text-success me-3"></i>100% genuine and trusted doctors</p>

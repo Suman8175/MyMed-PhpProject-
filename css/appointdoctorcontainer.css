@@ -1,0 +1,8 @@
+.container{
+    padding-top: 50px;
+}
+#back{
+    text-align: center;
+    margin: auto;
+    display: flex;
+}

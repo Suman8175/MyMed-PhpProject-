@@ -6,13 +6,18 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+body{
+    background-image: linear-gradient(rgb(12, 66, 107), rgb(90, 224, 239));
+    height: 100vh;
+    width: 100%;
+}
 .container{
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("background.jpg");
+    background-image: linear-gradient(rgb(12, 66, 107), rgb(90, 224, 239));
     column-gap: 30px;
 }
 .form{

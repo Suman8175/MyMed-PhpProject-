@@ -54,6 +54,7 @@ if (isset($_SESSION['nosigned'])){
         <link rel="stylesheet" href="style.css">
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <title>Signup and Login</title>
                          
     </head>
     <body>
