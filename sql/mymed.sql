@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 09:42 AM
+-- Generation Time: Jun 10, 2023 at 03:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -87,7 +87,7 @@ INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `
 (81, 'helloo', 'sumandevkota75@gmail.com', '$2y$10$5ucEP30Gf0haiXZc9Hw.zeZG4mkrlTnJpOge2TUBk2DyckQKFi.O6', '2023-06-07', 'Male', 'Patient', '2023-06-04 09:11:57', '51cdf29c81a69dc7f173705f744de167', 1, '', 0, 0),
 (82, 'Suman', 'as@gmail.com', '$2y$10$xu4WLb/r7cah8Fib6XSg8ODkyLx2Zo3bxlIlJXBGLuTn7OHSXi6ci', '2023-06-06', 'Male', 'Patient', '2023-06-04 09:13:44', '4b153aa4d31a265d8af87bafd69f3cc3', 1, '', 0, 0),
 (83, 'Su', 'z@gmail.com', '$2y$10$FQ6KuwijhqHht.sOmjyW/u2Jc10LJcjf9Nlp0yUzGFv8LNveM2TP6', '2023-06-13', 'Male', 'Doctor', '2023-06-04 09:40:57', '1b3fd74f8f461b84a8eaf7723d0f01b0', 1, '2023-05-11-SumanDevkota-Unit3.pdf', 1, 0),
-(84, 'as', 'n@gmail.com', '$2y$10$S93J3bL/8UDsVQJS09yPkuAPKIvrQ6mZbBReQis./BFrnsjCGZ.oa', '2023-06-06', 'Male', 'Doctor', '2023-06-04 09:44:11', '8a8f1c5dbc1ca3dc160a00aec7231006', 1, '2023-05-11-SumanDevkota-Unit3.pdf', 1, 0),
+(84, 'as', 'n@gmail.com', '$2y$10$S93J3bL/8UDsVQJS09yPkuAPKIvrQ6mZbBReQis./BFrnsjCGZ.oa', '2023-06-06', 'Male', 'Admin', '2023-06-04 09:44:11', '8a8f1c5dbc1ca3dc160a00aec7231006', 1, '2023-05-11-SumanDevkota-Unit3.pdf', 1, 0),
 (85, 'admin', 'admin@gmail.com', '$2y$10$g0SkgNLaF56AEAjpqvEGAO4idWsM0EOh4b2N/XmLJn60AjLmM6yNS', '2023-06-05', 'Male', 'Admin', '2023-06-06 20:20:57', '43875232c6ee29f0bf271a3a19014d2b', 1, '', 0, 0);
 
 -- --------------------------------------------------------
@@ -132,10 +132,9 @@ CREATE TABLE `slidertable` (
 --
 
 INSERT INTO `slidertable` (`sliderid`, `sliderheading`, `sliderparagraph`, `sliderimage`) VALUES
-(9, 'sdasd', 'dwadaw', '2.png'),
-(13, 'This is a form', 'dawwadad', 'doctor5.jpg'),
-(14, '   hiii', 'hello', 'qwe.jpg'),
-(17, '  I am don of nepal', 'This is a paragraph', 'doc3.jpg');
+(17, ' ', 'Healthcare facilities play a very important role in improving the quality of life of people.', 'doc3.jpg'),
+(18, ' ', 'To provide high quality specialized medical care involving a range of health professionals and promote highly-advanced medical treatments', 'qwe.png'),
+(19, '    ', 'Deliver the service that is responsive, efficient, courteous and helpful.', 'dctor.jpg');
 
 --
 -- Indexes for dumped tables
@@ -193,7 +192,7 @@ ALTER TABLE `patientdetails`
 -- AUTO_INCREMENT for table `slidertable`
 --
 ALTER TABLE `slidertable`
-  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
