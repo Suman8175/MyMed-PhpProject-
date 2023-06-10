@@ -22,8 +22,8 @@
   require '../connection.php';
 ?>
 
-  <section class="swiper mySwiper"><br><br><br>
-  <span class="title">Appoint Doctor</span>
+  <section class="swiper mySwiper"><br><br><br><br>
+  <span class="title" style="margin-top:14px;">Appoint Doctor</span>
 
     <div class="swiper-wrapper">
 <?php
@@ -50,7 +50,7 @@
       
       <?php } ?>
     </div>
-    <p> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
+    <p style="border-top:2px solid black;border-bottom"> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
   </section>
 
 <!-- Swiper JS -->

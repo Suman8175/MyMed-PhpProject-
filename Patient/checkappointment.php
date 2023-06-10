@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'nabbar.php';
 $appid="";
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $appid=$_POST['appid'];
@@ -159,6 +160,6 @@ if (isset($_SESSION['patientid'])) {
         </div>
     </div>
 </div>
-<button id="back">Go Back</button>
+<button  class="btn btn-danger" id="back">Browse More</button>
 </body>
 </html>
