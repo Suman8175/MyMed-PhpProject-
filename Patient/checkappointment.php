@@ -140,11 +140,19 @@ if (isset($_SESSION['patientid'])) {
                                 <label for="searchtime" class="form-label">Choose Appropriate Time</label>
                                 <select name="searchtime" id="searchtime" class="form-select">
                               <?php
-                              for ($i = 0; $i < 25; $i++) {
-                                $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-                                $optionValue = $hour . ':00:00';
-                                echo "<option>$hour:00</option>";
+                                require '../connection.php';
+                                $sql= " SELECT starttime,endtime
+                                FROM  doctordetails 
+                                WHERE LoginId = '$appid'";
+                                $result=mysqli_query($conn,$sql);
+                              while($ar=mysqli_fetch_array($result)){
+                                $start = date('H', strtotime($ar['starttime']));
+                                $end = date('H', strtotime($ar['endtime']));
+                              for ($i = $start; $i <= $end; $i++) {
+                                
+                                echo "<option>$i:00</option>";
                               }
+                            }
                               ?>
                             </select>
                         </div>

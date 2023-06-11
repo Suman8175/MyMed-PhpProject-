@@ -30,10 +30,10 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="editinfopatient.php">Edit Information</a>
+            <a class="nav-link" href="editinfopatient.php">Edit Information</a><br><br>
           </li>
+          <button type="button" class="btn btn-warning"  data-bs-toggle='modal' data-bs-target='#logoutpatientModal'>LogOut</button>
           <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit">Logout</button>
       </form>
         
         </ul>
@@ -42,7 +42,26 @@
     </div>
   </div>
 </nav>
-
+<div class="modal fade" id="logoutpatientModal" tabindex="-1" aria-labelledby="logoutpatientModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutpatientModalLabel">Confirm Logout?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to Logout?</p>
+      </div>
+      <div class="modal-footer">
+      <form id="verifyForm" action="../logout.php" method="POST">
+                    <input type="hidden" id="LoginIdInput" name="LoginId">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>

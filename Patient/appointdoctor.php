@@ -50,7 +50,8 @@
       
       <?php } ?>
     </div>
-    <p style="border-top:2px solid black;border-bottom"> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
+    <p style=" border-top:2px solid black;
+  padding-top:9px;"> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
   </section>
 
 <!-- Swiper JS -->
