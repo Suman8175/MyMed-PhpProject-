@@ -65,8 +65,10 @@ if (isset($_SESSION['patientid'])) {
     $stat="";
     $regs="";
     $imagee="";
+    $starttime="";
+    $endtime="";
     require '../connection.php';
-     $sqli="SELECT   lt.`LoginId`, lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile` ,dd.`City`,dd.`State`,dd.`Registration` FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE   lt.`LoginId` = '$appid'";
+     $sqli="SELECT   lt.`LoginId`, lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile` ,dd.`City`,dd.`State`,dd.`Registration` ,dd.`starttime`,dd.`endtime` FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE   lt.`LoginId` = '$appid'";
      $querygen=mysqli_query($conn,$sqli);
      while($resu=mysqli_fetch_array($querygen)){
         $user=$resu['Username'];
@@ -74,9 +76,12 @@ if (isset($_SESSION['patientid'])) {
         $mob=$resu['Mobile'];
         $cityy=$resu['City'];
         $stat=$resu['State'];
+        $starttime = date("H", strtotime($resu['starttime']));
+        $endtime=date("H", strtotime($resu['endtime'])) ;
         $regs=$resu['Registration'];
         $imagee="../profilepicture/".$resu['ProfilePicture'];
      }
+     $sql2=""
     ?>
 <div class="container ">
     <div class="card card1">
@@ -130,44 +135,69 @@ if (isset($_SESSION['patientid'])) {
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <form action="checktimingofdoctor.php" method="post"></form>
+                                <form action="appointment.php" method="post">
                                 <label for="datech" class="form-label">Choose Appropriate Date</label>
-                                <input type="date" class="form-control" name= "datech" id="datech">
+                                <input type="date" class="form-control" name= "appointment-date" id="appointment-date">
+                                <input type="text" class="form-control" name= "doctorid" value="<?= $appid?>" hidden>
+                            
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <label for="searchtime" class="form-label">Choose Appropriate Time</label>
-                                <select name="searchtime" id="searchtime" class="form-select">
-                              <?php
-                                require '../connection.php';
-                                $sql= " SELECT starttime,endtime
-                                FROM  doctordetails 
-                                WHERE LoginId = '$appid'";
-                                $result=mysqli_query($conn,$sql);
-                              while($ar=mysqli_fetch_array($result)){
-                                $start = date('H', strtotime($ar['starttime']));
-                                $end = date('H', strtotime($ar['endtime']));
-                              for ($i = $start; $i <= $end; $i++) {
-                                
-                                echo "<option>$i:00</option>";
-                              }
-                            }
-                              ?>
+                                <label for="appointment-time" class="form-label">Choose Appropriate Time</label>
+                                <select name="appointment-time" id="appointment-time" class="form-select">
+                      
                             </select>
                         </div>
                     </div>
                     </div>
                     <div class="d-flex justify-content-center pt-3">
-                                    
-                        <button type='button' class='btn btn-success editDoctorDetails' data-bs-toggle='modal' data-bs-target='#editDoctorDetailsModal' data-sliderid=".$answer['sliderid'].">Edit</button>
-                            </form>
-                    </div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<button  class="btn btn-danger" id="back">Browse More</button>
+<button class="btn btn-danger" id="back">
+  <a href="appointdoctor.php" style="text-decoration: none; color: inherit;">Browse More</a>
+</button>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('#appointment-date').change(function() {
+    const selectedDate = $(this).val();
+    
+    $.ajax({
+      url: 'checktimingofdoctor.php',
+      type: 'POST',
+      data: {
+        'doctorid': '<?= $appid; ?>',
+        'appointment-date': selectedDate
+      },
+      dataType: 'json', // Specify the expected data type as JSON
+      success: function(response) {
+        $('#appointment-time').empty();
+        
+        for (let i =<?= $starttime?>; i <= <?= $endtime ?>; i++) {
+          if (!response.includes(i)) {
+            const timeString = i.toString().padStart(2, '0') + ':00:00';
+            const option = $('<option>').text(timeString).val(timeString);
+            $('#appointment-time').append(option);
+          }
+        }
+      },
+      error: function() {
+        // Handle error case
+      }
+    });
+  });
+});
+
+</script>
 </body>
 </html>

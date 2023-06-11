@@ -73,9 +73,9 @@ if (isset($_SESSION['nosigned'])){
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
-                        <div class="form-link">
+                       <!--  <div class="form-link">
                             <a href="#" class="forgot-pass">Forgot password?</a>
-                        </div>
+                        </div> -->
 
                         <div class="field button-field">
                             <button>Login</button>
