@@ -13,6 +13,7 @@
   <body>
   
     <?php
+    include'navbar.php';
 
     $sliderid="";
     $sliderheading="";
@@ -33,9 +34,11 @@
       }
 }
 ?>
-  <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data">
-  <div class="col-md-6">
-  <div class="d-flex justify-content-center">
+<br><br>
+<span class="title">Edit Slider</span>
+  <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data" class="Middle">
+  <div class="col-lg-12">
+  <div class="d-flex" style="display:flex;justify-content:space-around;margin-block:3rem;">
   <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px; border: 2px solid blue;">
       <img id="changeimg" src=<?=$sliderimage ?> alt='Image'  class="img-fluid rounded-circle" style="object-fit: cover; width: 100%; height: 100%;">  
    </div>

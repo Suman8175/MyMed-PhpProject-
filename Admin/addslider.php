@@ -18,6 +18,7 @@ if (isset($_SESSION['sliderdetails'])){
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <style>
     .custom-top-spacing {
     margin-top: 70px!important; /* Adjust the value as needed */
@@ -32,7 +33,8 @@ if (isset($_SESSION['sliderdetails'])){
     </style>
   
   </head>
-  <body>
+  <body><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+  <span class="title">Add Slider</span>
   <div class="container mt-5 custom-top-spacing">
   <form action="sliderbackend.php" method="POST" enctype="multipart/form-data">
   <div class="mb-3">
