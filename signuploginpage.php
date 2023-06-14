@@ -116,7 +116,7 @@ if (isset($_SESSION['nosigned'])){
                         <div class="birthday">
                             <p>Birthday</p>
                             <div class="date">
-                                <input type="date" name="DOB" class="date"/>
+                                <input type="date" name="DOB"  id="DOB" class="date"/>
                               
                             </div>
                           </div>
@@ -169,6 +169,26 @@ if (isset($_SESSION['nosigned'])){
            
         </section>
         <script src="scripts.js"></script>
-        
+        <script>
+    // Get yesterday's date
+    var yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    var dd = yesterday.getDate();
+    var mm = yesterday.getMonth() + 1; // January is 0
+    var yyyy = yesterday.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    yesterday = yyyy + '-' + mm + '-' + dd;
+
+    // Set the maximum date of the input field to yesterday
+    document.getElementById("DOB").setAttribute("max", yesterday);
+  </script>
     </body>
 </html>

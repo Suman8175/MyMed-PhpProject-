@@ -199,5 +199,25 @@ $(document).ready(function() {
 });
 
 </script>
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; // January is 0
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    // Set the minimum date of the input field to today
+    document.getElementById("appointment-date").setAttribute("min", today);
+  </script>
 </body>
 </html>
