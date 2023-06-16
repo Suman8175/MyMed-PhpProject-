@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     $DOB=$_POST['DOB'];
     $Gender=$_POST['Gender'];
     $Role=$_POST['Role'];
+    $NMC=$_POST['NMC'];
     $filename=$_FILES["choosefile"]["name"];
     $tempfile=$_FILES["choosefile"]["tmp_name"];
      $folder="pdffiles/".$filename;
@@ -63,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
             //To check if both query as well as email is gone then signup shall be sucessful and user shall be rediect to verify his account
                 if ($result){
                     $newid=mysqli_insert_id($conn);
-                    $sqlre="INSERT INTO `patientdetails` (`Pid`, `LoginId`)
+                    $sqlre="INSERT INTO `patientdetails` (`PatientId`, `LoginId`)
                     VALUES (NULL, '$newid')";
                     $res2=mysqli_query($conn,$sqlre);
                  sendmail($Email,$vcode);
@@ -79,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
                 $hash = password_hash($Password, PASSWORD_DEFAULT);
                 $vcode=bin2hex(random_bytes(16));
                 if(!$filename == ""){
-            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`,`AccountCreation`, `verificationcode`,`certificate`) 
-            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode','$filename')";
+            $sql="INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`,`AccountCreation`, `verificationcode`,`certificate`,`NMCno`) 
+            VALUES (NULL, '$Username', '$Email', '$hash', '$DOB', '$Gender', '$Role', current_timestamp(),'$vcode','$filename','$NMC')";
                  $resultdoctor=mysqli_query($conn,$sql);
                  move_uploaded_file($tempfile,$folder); 
                 if($resultdoctor ){

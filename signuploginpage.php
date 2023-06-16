@@ -150,8 +150,14 @@ if (isset($_SESSION['nosigned'])){
                             
                             </div>
                           </div>
-                          <div id="file-input" style="display: none;">
+                         
+                        
+                         <div id="file-input" style="display: none;">
                              <input type="file" name="choosefile" id="choosefile">
+                         </div>
+                         <div id="DRN" style="display:none;">
+                            <label for="NMC">NMC Number</label>
+                             <input type="text" name="NMC" id="NMC">
                          </div>
                          <script src="javascript/fileshower.js"></script>
                         <div class="field button-field">

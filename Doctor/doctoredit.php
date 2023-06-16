@@ -52,7 +52,7 @@ if (isset($_SESSION['erroredit'])) {
   $mobile = "";
   $profilePicture = "";
   require('../connection.php');
-  $sql3 = "SELECT lt.Username, lt.`D.O.B`, dd.City, dd.State, dd.HouseNo, dd.Registration, dd.Specialization, dd.Mobile, dd.starttime,dd.endtime,dd.ProfilePicture
+  $sql3 = "SELECT lt.Username, lt.`D.O.B`, lt.`NMCno`,dd.City, dd.State, dd.HouseNo, dd.Specialization, dd.Mobile, dd.starttime,dd.endtime,dd.ProfilePicture
 FROM logintable lt
 JOIN doctordetails dd ON lt.LoginId = dd.LoginId
 WHERE lt.LoginId = '$Loginid'";
@@ -64,7 +64,7 @@ WHERE lt.LoginId = '$Loginid'";
     $city = $row['City'];
     $state = $row['State'];
     $houseNo = $row['HouseNo'];
-    $registration = $row['Registration'];
+    $registration = $row['NMCno'];
     $specialization = $row['Specialization'];
     $mobile = $row['Mobile'];
     $profilePicture = "../profilepicture/" . $row['ProfilePicture'];

@@ -42,6 +42,7 @@ require 'navbar.php';
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>NMC No</th>
                 <th>View Files</th>
                 <th>Verify Doctor</th>
                 <th>Delete Doctor</th>
@@ -62,10 +63,11 @@ $res=mysqli_query($conn,$sql);
   <td>".$answer['LoginId']."</td>
   <td>".$answer['Username']."</td>
    <td>".$answer['Email']."</td>
+   <td>".$answer['NMCno']."</td>
     <td><a href='viewfiles.php?did=".$answer['LoginId']."'>View</a></td>
   <td>
-    <button type='button' class='btn btn-link verifyButton' data-bs-toggle='modal' data-bs-target='#verifyModal' data-LoginId='" . $answer['LoginId'] ."'>Verify</button></td>
-    <td> <button type='button' class='btn btn-link deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-vLoginId='" . $answer['LoginId'] ."'>Delete</button></td>
+    <button type='button' class='btn btn-success verifyButton' data-bs-toggle='modal' data-bs-target='#verifyModal' data-LoginId='" . $answer['LoginId'] ."'>Verify</button></td>
+    <td> <button type='button' class='btn btn-danger deleteButton' data-bs-toggle='modal' data-bs-target='#deleteModal' data-vLoginId='" . $answer['LoginId'] ."'>Delete</button></td>
    
    </tr>";
   }
