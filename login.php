@@ -19,7 +19,7 @@
             elseif ($user["Role"] == "Doctor" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["verifieddoctor"] == 1 && $user["userdelete"] == 0) {
                 $_SESSION['docusername'] = $useremail;
                 $_SESSION['docid'] = $user["LoginId"];
-                header("Location:Doctor/docwelcome.php");
+                header("Location:Doctor/showupcomingpatient.php");
             }
             elseif ($user["Role"] == "Admin" && password_verify($userpass, $user["Password"]) && $user["isverified"] == 1 && $user["userdelete"] == 0) {
                 $_SESSION['username'] = $useremail;

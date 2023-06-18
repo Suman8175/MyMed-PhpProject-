@@ -27,7 +27,7 @@ require 'phpmailer/src/SMTP.php';
     $mail->Subject = "Please use below verification link";
     // Using below link will provide email and verification code through url through which we can verify a user
     $mail->Body = "Here is the verification link
-    <a href='http://localhost/project/verify.php?email=$mailing&verification=$code'>Verify</a>";
+    <a href='http://localhost/phpproject/verify.php?email=$mailing&verification=$code'>Verify</a>";
     $mail->send();
   $showmail='<div class="alert alert-success alert-dismissible fade show" role="alert">
    Please Check your email to verify your account.

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans:wght@500&family=Montserrat:wght@100&family=Rubik+Puddles&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/section.css">
     <style>
     .carousel-item {
       height: 32rem;
@@ -25,7 +26,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand pl-3" href="#" style="padding-left: 4rem;font-family: cursive;">MyMed</a>
+    <a class="navbar-brand pl-3" href="#" style="padding-left: 4rem;font-family: cursive;"><img style="height:5vh;width:11vh;" src="picture/logo.jpg"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -99,6 +100,51 @@
   </button>
 </div>
 </div>
+<br>
+<br>
+<!-- Added section -->
+<section id="featured-services" class="featured-services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="fas fa-heartbeat"></i></div>
+            <h4 class="title">Entrust Us</h4>
+            <p class="description">Entrust your heart to us with your health related problems</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="fas fa-pills"></i></div>
+            <h4 class="title">Diagnosis</h4>
+            <p class="description">Your every diagnosis is saved here</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="fas fa-thermometer"></i></div>
+            <h4 class="title">Certified Doctors</h4>
+            <p class="description">Fully Certified and Experienced Doctor</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="fas fa-dna"></i></div>
+            <h4 class="title">Easy Appointment</h4>
+            <p class="description">Book appointment in your date and time</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+</section>
+<br>
+<br>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
   <!-- Section: Social media -->

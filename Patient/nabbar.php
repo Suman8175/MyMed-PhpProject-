@@ -36,7 +36,9 @@ if (isset($_SESSION['patientusername'])){
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="appointdoctor.php">Appoint Doctor</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="appointmentview.php">View Appointments</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="editinfopatient.php">Edit Information</a><br><br>
           </li>

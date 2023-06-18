@@ -27,7 +27,7 @@ if (isset($_SESSION['contactquery'])){
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"  style="padding-left: 4rem; font-family: cursive;">MyMed</a>
+    <a class="navbar-brand" href="#"  style="padding-left: 4rem; font-family: cursive;"><img style="height:5vh;width:11vh;" src="picture/logo.jpg"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,10 +37,10 @@ if (isset($_SESSION['contactquery'])){
           <a class="nav-link " aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item  px-4">
-          <a class="nav-link active" href="about.php">About Us</a>
+          <a class="nav-link " href="about.php">About Us</a>
         </li>
         <li class="nav-item  px-4">
-          <a class="nav-link" href="contactus.php">Contact Us</a>
+          <a class="nav-link active" href="contactus.php">Contact Us</a>
         </li>
       </ul>
       <form class="d-flex ms-auto" >
@@ -72,7 +72,7 @@ if (isset($_SESSION['contactquery'])){
                     </h6>
                     <h6 class="text-secondary text-uppercase">Get In Touch</h6>
                     <h1 class="mb-4">Contact For Any Query</h1>
-                    <p class="mb-4 fontss" >Thank you for choosing our patient management system. We value your feedback and are committed to providing exceptional service. If you have any questions, concerns, or suggestions, please don't hesitate to contact us. Our dedicated support team is here to assist you. You can reach us by phone at [phone number] during our business hours [mention hours] or send us an email at [email address]. We strive to respond to all inquiries promptly. Your input is vital in helping us improve our system and enhance your user experience. We appreciate your trust in us and look forward to assisting you.</p>
+                    <p class="mb-4 fontss" >Thank you for choosing our patient management system. We value your feedback and are committed to providing exceptional service. If you have any questions, concerns, or suggestions, please don't hesitate to contact us. Our dedicated support team is here to assist you. You can reach us by phone at +977 9815158175 during our business hours or send us an email at mymed8175@gmail.com. We strive to respond to all inquiries promptly. Your input is vital in helping us improve our system and enhance your user experience. We appreciate your trust in us and look forward to assisting you.</p>
                     
                 </div>
                 <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">

@@ -68,7 +68,7 @@ if (isset($_SESSION['patientid'])) {
     $starttime="";
     $endtime="";
     require '../connection.php';
-     $sqli="SELECT   lt.`LoginId`, lt.`Username`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile` ,dd.`City`,dd.`State`,dd.`Registration` ,dd.`starttime`,dd.`endtime` FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE   lt.`LoginId` = '$appid'";
+     $sqli="SELECT   lt.`LoginId`, lt.`Username`, lt.`NMCno`,  dd.`ProfilePicture`,dd.`Specialization`,dd.`Mobile` ,dd.`City`,dd.`State` ,dd.`starttime`,dd.`endtime` FROM `logintable` lt JOIN `doctordetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE   lt.`LoginId` = '$appid'";
      $querygen=mysqli_query($conn,$sqli);
      while($resu=mysqli_fetch_array($querygen)){
         $user=$resu['Username'];
@@ -78,7 +78,7 @@ if (isset($_SESSION['patientid'])) {
         $stat=$resu['State'];
         $starttime = date("H", strtotime($resu['starttime']));
         $endtime=date("H", strtotime($resu['endtime'])) ;
-        $regs=$resu['Registration'];
+        $regs=$resu['NMCno'];
         $imagee="../profilepicture/".$resu['ProfilePicture'];
      }
      $sql2=""
@@ -151,8 +151,13 @@ if (isset($_SESSION['patientid'])) {
                         </div>
                     </div>
                     </div>
+                    <div class="form-outline mb-4">
+                                        <label for="problem" class="form-label text-center">Write Brefly About Your Problem.</label>
+                                        <textarea class="form-control" name="problem" id="problem" rows="4"></textarea>
+                                    </div>
+
                     <div class="d-flex justify-content-center pt-3">
-                    <button type="submit">Submit</button>
+                    <button type="submit"  class="btn btn-success">Appoint</button>
                 </div>
             </form>
                 </div>

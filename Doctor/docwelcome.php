@@ -37,7 +37,7 @@ if (isset($_SESSION['docid'])){
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="showupcomingpatient.php">View Upcomming Appointments</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="doctoredit.php">Edit Profile</a>
