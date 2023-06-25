@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2023 at 02:12 PM
+-- Generation Time: Jun 25, 2023 at 01:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,22 +43,23 @@ CREATE TABLE `appointmenttable` (
 INSERT INTO `appointmenttable` (`appointid`, `docid`, `patientid`, `appointmentdate`, `appointmenttime`, `Concern`) VALUES
 (1, 76, 82, '2023-07-15', '13:00:00', 'Stress or exhaustion'),
 (2, 76, 78, '2023-07-15', '11:00:00', 'Ok Im sick from headache'),
-(3, 83, 82, '2023-06-15', '15:00:00', 'gdrgdrgdrg'),
+(3, 83, 80, '2023-06-15', '15:00:00', 'gdrgdrgdrg'),
 (4, 76, 80, '2023-07-15', '09:00:00', 'Weakened immune system'),
-(5, 76, 82, '2023-08-15', '15:00:00', 'Exposure to toxins or pollutants'),
-(8, 83, 82, '2023-06-17', '11:00:00', 'sefesfesfes'),
-(9, 89, 82, '2023-06-14', '09:00:00', 'esfesfesfesf'),
+(5, 76, 80, '2023-08-15', '15:00:00', 'Exposure to toxins or pollutants'),
+(8, 83, 80, '2023-06-17', '11:00:00', 'sefesfesfes'),
+(9, 89, 80, '2023-06-14', '09:00:00', 'esfesfesfesf'),
 (10, 76, 79, '2023-07-01', '14:00:00', 'Side effects from medication'),
-(11, 83, 82, '2023-06-23', '13:00:00', 'esfesffsfs'),
-(12, 83, 82, '2023-06-23', '15:00:00', 'sefesfesf'),
-(13, 77, 82, '2023-06-23', '10:00:00', 'adsefesfsafs'),
-(14, 86, 82, '2023-06-23', '10:00:00', 'AWDawdaWDad'),
-(15, 77, 82, '2023-06-23', '13:00:00', 'I am suffering from common colkd from past 3 days.'),
+(11, 83, 80, '2023-06-23', '13:00:00', 'esfesffsfs'),
+(12, 83, 80, '2023-06-23', '15:00:00', 'sefesfesf'),
+(13, 77, 80, '2023-06-23', '10:00:00', 'adsefesfsafs'),
+(14, 86, 80, '2023-06-23', '10:00:00', 'AWDawdaWDad'),
+(15, 77, 80, '2023-06-23', '13:00:00', 'I am suffering from common colkd from past 3 days.'),
 (16, 76, 92, '2023-06-30', '14:00:00', 'suffering from common cold from past three days'),
-(17, 77, 82, '2023-06-24', '09:00:00', 'dgfgdf'),
-(18, 76, 82, '2023-06-30', '09:00:00', 'ui45uy54uyu5'),
-(19, 77, 82, '2023-06-23', '14:00:00', 'help me'),
-(20, 87, 82, '2023-06-24', '13:00:00', 'okkkk');
+(17, 77, 80, '2023-06-24', '09:00:00', 'dgfgdf'),
+(18, 76, 80, '2023-06-30', '09:00:00', 'ui45uy54uyu5'),
+(19, 77, 80, '2023-06-23', '14:00:00', 'help me'),
+(20, 87, 80, '2023-06-24', '13:00:00', 'okkkk'),
+(21, 96, 82, '2023-06-23', '11:00:00', 'EJKADJKDEA');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,52 @@ INSERT INTO `doctordetails` (`Did`, `LoginId`, `City`, `State`, `HouseNo`, `Spec
 (8, 89, 'Pokhara', 'Province3', 0, 'General', 99999999, 'PP1.png', '09:00:00', '17:00:00'),
 (9, 90, 'Pokhara', 'Province3', 0, 'General', 0, 'downdoc2.jpg', '09:00:00', '17:00:00'),
 (10, 93, 'Pokhara', 'Province3', 0, 'General', 99999999, 'PP1.png', '09:00:00', '17:00:00'),
-(11, 94, 'Pokhara', 'Province3', 0, 'General', 99999999, 'PP1.png', '09:00:00', '17:00:00');
+(11, 94, 'Pokhara', 'Province3', 0, 'General', 99999999, 'PP1.png', '09:00:00', '17:00:00'),
+(12, 96, 'Pokhara', 'Province3', 0, 'General', 99999999, 'PP1.png', '09:00:00', '17:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footercontact`
+--
+
+CREATE TABLE `footercontact` (
+  `FId` int(11) NOT NULL,
+  `FooterTitle` varchar(255) NOT NULL,
+  `FooterDesc` varchar(255) NOT NULL,
+  `Facility1` varchar(50) NOT NULL,
+  `Facility2` varchar(50) NOT NULL,
+  `Facility3` varchar(50) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Mobile` bigint(11) NOT NULL,
+  `FontAwesomeIcon1` varchar(255) NOT NULL,
+  `FontAwesomeIcon1Title` varchar(25) NOT NULL,
+  `FontAwesomeIcon1Desc` varchar(255) NOT NULL,
+  `FontAwesomeIcon2` varchar(255) NOT NULL,
+  `FontAwesomeIcon2Title` varchar(25) NOT NULL,
+  `FontAwesomeIcon2Desc` varchar(255) NOT NULL,
+  `FontAwesomeIcon3` varchar(255) NOT NULL,
+  `FontAwesomeIcon3Title` varchar(25) NOT NULL,
+  `FontAwesomeIcon3Desc` varchar(255) NOT NULL,
+  `FontAwesomeIcon4` varchar(255) NOT NULL,
+  `FontAwesomeIcon4Title` varchar(25) NOT NULL,
+  `FontAwesomeIcon4Desc` varchar(255) NOT NULL,
+  `AboutTitle` varchar(255) NOT NULL,
+  `FirstImgTitle` varchar(50) NOT NULL,
+  `SecondImgTitle` varchar(50) NOT NULL,
+  `ThirdImgTitle` varchar(50) NOT NULL,
+  `FirstImage` varchar(255) NOT NULL,
+  `SecondImage` varchar(255) NOT NULL,
+  `ThirdImage` varchar(255) NOT NULL,
+  `ContactParagraph` varchar(3000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `footercontact`
+--
+
+INSERT INTO `footercontact` (`FId`, `FooterTitle`, `FooterDesc`, `Facility1`, `Facility2`, `Facility3`, `Email`, `Mobile`, `FontAwesomeIcon1`, `FontAwesomeIcon1Title`, `FontAwesomeIcon1Desc`, `FontAwesomeIcon2`, `FontAwesomeIcon2Title`, `FontAwesomeIcon2Desc`, `FontAwesomeIcon3`, `FontAwesomeIcon3Title`, `FontAwesomeIcon3Desc`, `FontAwesomeIcon4`, `FontAwesomeIcon4Title`, `FontAwesomeIcon4Desc`, `AboutTitle`, `FirstImgTitle`, `SecondImgTitle`, `ThirdImgTitle`, `FirstImage`, `SecondImage`, `ThirdImage`, `ContactParagraph`) VALUES
+(1, 'MYMED-YOUR COMPLETE DOCTOR', 'Effortlessly manage your patient details online for personalized and secure care.', 'Online Book', 'Online Medical Report', 'Easily Accessible', ' mymed75@gmail.com', 9846632244, '<i class=\"fas fa-heartbeat\"></i>', 'Entrust Us', 'Entrust your heart to us with your health related problems', '<i class=\"fas fa-pills\"></i>', 'Diagnosis', 'Your every diagnosis is saved here', '<i class=\"fa-sharp fa-solid fa-eye\"></i>', 'Certified Doctor', 'Fully Certified and Experienced Doctor', '<i class=\"fas fa-dna\"></i>', 'Easy Appointment', 'Book appointment in your date and time', 'We Are Providing Online Doctor Booking', '24 Hours Facility', 'Certified Doctors', 'Emergency Services', 'image122.jpg', 'qwe.jpg', 'imgf.jpg', 'Thank you for choosing our patient management system. We value your feedback and are committed to providing exceptional service. If you have any questions, concerns, or suggestions, please don\'t hesitate to contact us. Our dedicated support team is here to assist you. You can reach us by phone at +977 9815158175 during our business hours or send us an email at mymed8175@gmail.com. We strive to respond to all inquiries promptly. Your input is vital in helping us improve our system and enhance your user experience. We appreciate your trust in us and look forward to assisting you.');
 
 -- --------------------------------------------------------
 
@@ -123,8 +169,8 @@ CREATE TABLE `logintable` (
 --
 
 INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `Gender`, `Role`, `AccountCreation`, `verificationcode`, `isverified`, `NMCno`, `certificate`, `verifieddoctor`, `userdelete`) VALUES
-(75, 'Suman', 'sumand@gmail.com', '$2y$10$hntgqS2//zcwdvH2QvJ6peM7g6AJRvHgh2VbrPT43oUVCMHpKdjZm', '2023-05-04', 'Male', 'Admin', '2023-05-14 19:14:53', '99c989991322bf6a75d1af13324fe9fe', 1, '', '', 1, 0),
-(76, 'Suman Devkota', 'doctor@gmail.com', '$2y$10$tuWZ6DQ1LY83SQHunYjyjOU9aDHpktnlPywq2a1x3YKIk3SeDGy9i', '2023-06-06', 'Male', 'Doctor', '2023-06-04 01:11:17', '23dc0dd399860de59ecbace6d9336e82', 1, '254155', '2023-05-11-SumanDevkota-Unit3.pdf', 1, 0),
+(75, 'Ajay Devgan', 'sumand@gmail.com', '$2y$10$hntgqS2//zcwdvH2QvJ6peM7g6AJRvHgh2VbrPT43oUVCMHpKdjZm', '2023-05-04', 'Male', 'Admin', '2023-05-14 19:14:53', '99c989991322bf6a75d1af13324fe9fe', 1, '', '', 1, 0),
+(76, 'Abishek Bacchan', 'doctor@gmail.com', '$2y$10$tuWZ6DQ1LY83SQHunYjyjOU9aDHpktnlPywq2a1x3YKIk3SeDGy9i', '2023-06-06', 'Male', 'Doctor', '2023-06-04 01:11:17', '23dc0dd399860de59ecbace6d9336e82', 1, '254155', '2023-05-11-SumanDevkota-Unit3.pdf', 1, 0),
 (77, 'Bhakti Thapa', 'sum@gmail.com', '$2y$10$yzNYXwcgqcMMzbTOs9zfAO6J1raB2Fta4Mj6xKXCHURqmsBCCZKym', '2023-06-06', 'Male', 'Doctor', '2023-06-04 01:19:59', '598f68444cc25ffac2f0f443bee91ee9', 1, '25656523', '', 1, 0),
 (78, 'David Thomas', 'q@gmail.com', '$2y$10$wJJBvLJ2T..YPTHzKxawWeWMEuYUTM9xvgufHcxM/sRfRk4HaiFPa', '2023-06-13', 'Male', 'Patient', '2023-06-04 08:38:29', '15767e5c49726dfdd6d3d8b5276d6292', 1, '', '', 0, 0),
 (79, 'John Rai', 'r@gmail.com', '$2y$10$RFYiCwTGhgAVRkYkyGV1DexQaVEVHLrJRL3c4My/yTDJX6rYVAomS', '2023-06-06', 'Male', 'Patient', '2023-06-04 08:42:47', '505a0b428dc8126a59b3c2d0ea21dd5d', 1, '', '', 0, 0),
@@ -142,7 +188,8 @@ INSERT INTO `logintable` (`LoginId`, `Username`, `Email`, `Password`, `D.O.B`, `
 (92, 'Charlie Chairs', 'swd@gmail.com', '$2y$10$1/ivRErQCWFkwYLFq9bRO.2MWrZW7OleOBOwjqsDIgB2g.bkVMssm', '2023-06-06', 'Male', 'Patient', '2023-06-16 12:32:11', 'f5ab8c66a9e668ada892b472b1ae896e', 1, '', '', 1, 0),
 (93, 'Ram Prasad Adhikari', 'ds525@gmail.com', '$2y$10$vk2P75vB1Oo5m7JC44w1wONiGJa8Ncp8QXvGxuIWtOdkOHg48SwZ6', '2023-06-07', 'Male', 'Doctor', '2023-06-18 00:27:59', 'b6b2b99ff720fd219c14dac57213631a', 0, '3214555', 'mymedschema.pdf', 0, 0),
 (94, 'Okhal Dhungana', 'man525@gmail.com', '$2y$10$XTsNJB8NNAZX0fq/9sIzSe8Kn/an6es0ceHpqm9GfQt6ylzQkWe5O', '2023-06-08', 'Male', 'Doctor', '2023-06-18 00:30:38', 'ae442f0e94dfdd19d563479eff76b914', 1, '3214555', 'For-mid-defence-final.docx', 1, 0),
-(95, 'Navina', 'navina@gmail.com', '$2y$10$CVbQtiSIyLidg79HO9vsk.AtOJAIly8FSmTAs1pJZtT3JUWcJB8KK', '2023-06-05', 'Female', 'Patient', '2023-06-18 06:37:32', '683440809762112fdc097744adc8d533', 1, '', '', 0, 0);
+(95, 'Navina', 'navina@gmail.com', '$2y$10$CVbQtiSIyLidg79HO9vsk.AtOJAIly8FSmTAs1pJZtT3JUWcJB8KK', '2023-06-05', 'Female', 'Patient', '2023-06-18 06:37:32', '683440809762112fdc097744adc8d533', 1, '', '', 0, 0),
+(96, 'Ram Bahadur', 'rambdr@gmail.com', '$2y$10$LL7KjiNcvOupGHQdnc5TxuWdrTQcKfzkXP2s4KEqFbc1sggJnPqnW', '2023-06-07', 'Male', 'Doctor', '2023-06-19 07:07:12', 'e4bb48332707f698be592fb94ce70a10', 1, '', 'MyMed-Defense.pptx', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -195,7 +242,7 @@ CREATE TABLE `slidertable` (
 INSERT INTO `slidertable` (`sliderid`, `sliderheading`, `sliderparagraph`, `sliderimage`) VALUES
 (17, ' ', 'Healthcare facilities play a very important role in improving the quality of life of people.', 'doc3.jpg'),
 (18, ' ', 'To provide high quality specialized medical care involving a range of health professionals and promote highly-advanced medical treatments', 'qwe.png'),
-(19, '    ', 'Deliver the service that is responsive, efficient, courteous and helpful.', 'dctor.jpg');
+(19, 'First Headings', 'Deliver the service that is responsive, efficient, courteous and helpful.', 'dctor.jpg');
 
 --
 -- Indexes for dumped tables
@@ -215,6 +262,12 @@ ALTER TABLE `appointmenttable`
 ALTER TABLE `doctordetails`
   ADD PRIMARY KEY (`Did`),
   ADD KEY `LoginId` (`LoginId`);
+
+--
+-- Indexes for table `footercontact`
+--
+ALTER TABLE `footercontact`
+  ADD PRIMARY KEY (`FId`);
 
 --
 -- Indexes for table `logintable`
@@ -243,19 +296,25 @@ ALTER TABLE `slidertable`
 -- AUTO_INCREMENT for table `appointmenttable`
 --
 ALTER TABLE `appointmenttable`
-  MODIFY `appointid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `appointid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `doctordetails`
 --
 ALTER TABLE `doctordetails`
-  MODIFY `Did` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Did` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `footercontact`
+--
+ALTER TABLE `footercontact`
+  MODIFY `FId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `LoginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `patientdetails`
@@ -267,7 +326,7 @@ ALTER TABLE `patientdetails`
 -- AUTO_INCREMENT for table `slidertable`
 --
 ALTER TABLE `slidertable`
-  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables

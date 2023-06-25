@@ -7,6 +7,18 @@ if (isset($_SESSION['contactquery'])){
     unset($_SESSION['contactquery']);
 }
 ?>
+   <?php
+                            $contactparagraph="";
+                          
+                            require 'connection.php';
+                            $sql="SELECT ContactParagraph
+                            FROM footercontact";
+                            $res=mysqli_query($conn,$sql);
+                            if ($res) {
+                            $row = mysqli_fetch_assoc($res);
+                            $contactparagraph=$row['ContactParagraph'];
+                            }
+                            ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -72,7 +84,9 @@ if (isset($_SESSION['contactquery'])){
                     </h6>
                     <h6 class="text-secondary text-uppercase">Get In Touch</h6>
                     <h1 class="mb-4">Contact For Any Query</h1>
-                    <p class="mb-4 fontss" >Thank you for choosing our patient management system. We value your feedback and are committed to providing exceptional service. If you have any questions, concerns, or suggestions, please don't hesitate to contact us. Our dedicated support team is here to assist you. You can reach us by phone at +977 9815158175 during our business hours or send us an email at mymed8175@gmail.com. We strive to respond to all inquiries promptly. Your input is vital in helping us improve our system and enhance your user experience. We appreciate your trust in us and look forward to assisting you.</p>
+                    <p class="mb-4 fontss" >
+                            <?php echo $contactparagraph ?>
+                    </p>
                     
                 </div>
                 <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -119,92 +133,9 @@ if (isset($_SESSION['contactquery'])){
 
 
     <!-- Footer Start -->
-    <footer class="text-center text-lg-start  text-muted" style=" background-color:rgb(242, 242, 245)!important;">
-        <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <!-- Left -->
-          <div class="me-5 d-none d-lg-block">
-            <span style="font-family: 'Dancing Script', cursive; font-size:34px;">Get connected with us:</span>
-          </div>
-          <!-- Left -->
-      
-          <!-- Right -->
-          <div>
-            <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-          <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-      
-        <!-- Section: Links  -->
-        <section class="">
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fa-solid fa-truck-medical"></i>
-                  MyMed-Your Complete Doctor
-                </h6>
-                <p>  
-                  Effortlessly manage your patient details online for personalized and secure care.
-                </p>
-              </div>
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase fw-bold mb-4">
-                  Our Facilities
-                </h6>
-                <p>
-                  Online Booking
-                </p>
-                <p>
-                  Online Medical Report
-                </p>
-                <p>
-                  Easily Accessible
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-             
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                <p><i class="fas fa-home me-3 text-secondary"></i>Nepal</p>
-                <p>
-                  <i class="fas fa-envelope me-3 text-secondary"></i>
-                  mymed75@gmail.com
-                </p>
-                <p><i class="fas fa-phone me-3 text-secondary"></i>9815457810</p>
-              </div>
-              <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-          </div>
-        </section>
-        <!-- Section: Links  -->
-      
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025); border-top:2px solid rgb(143, 137, 137); ">
-        CopyRight &copy; <?php echo date("Y")?> -ALL Right Reserved
-        </div>
-        <!-- Copyright -->
-      </footer>
-
+    <?php
+    require 'footer/footer.php';
+    ?>
     <!-- Footer End -->
 
 </body>

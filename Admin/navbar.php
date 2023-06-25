@@ -32,6 +32,9 @@
           <li class="nav-item">
             <a class="nav-link" href="addslider.php">Manage Slider </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="manageindex.php">Manage Front Page </a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Delete

@@ -36,7 +36,7 @@
 ?>
 <br><br>
 <span class="title">Edit Slider</span>
-  <form action="updatesliderquery.php" method="POST" enctype="multipart/form-data" class="Middle">
+  <form id= "updateslider" action="updatesliderquery.php" method="POST" enctype="multipart/form-data" class="Middle">
   <div class="col-lg-12">
   <div class="d-flex" style="display:flex;justify-content:space-around;margin-block:3rem;">
   <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px; border: 2px solid blue;">
@@ -50,8 +50,8 @@
     <input type="hidden" name="sliderid" class="form-control" id="title"  value="<?php echo $sliderid?>">
   </div>
   <div class="mb-3">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" name="title" class="form-control" id="title"  value="<?php echo $sliderheading?>">
+    <label for="titlee" class="form-label">Title</label>
+    <input type="text" name="titlee" class="form-control" id="titlee"  value="<?php echo $sliderheading?>">
   </div>
   <div class="mb-3">
     <label for="content" class="form-label">Content</label>
@@ -81,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="submitForm()">Confrim</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Confirm</button>
       </div>
     </div>
   </div>
@@ -105,10 +105,8 @@
   });
 </script>
 <script>
-    function submitForm() {
-      var form = document.querySelector("form");
-      form.action = "updatesliderquery.php?sliderid=<?php echo $sliderid ?>&sliderheading=<?php echo $sliderheading ?>&sliderparagraph=<?php echo $sliderparagraph ?>";
-      form.submit();
+     function submitForm() {
+      document.getElementById("updateslider").submit();
     }
   </script>
 </body>

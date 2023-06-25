@@ -58,7 +58,7 @@
     $result = mysqli_query($conn, $sql);
     // $noofrows = mysqli_num_rows($result);
     ?>
-  <div id="carouselExampleCaptions" class="carousel slide">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
   <div class="carousel-indicators">
         <?php
         $i=0;
@@ -68,7 +68,7 @@
                     $activates="active";
                 }
                 ?>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to=<?= $i; ?> class=<?= $activates;?> aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide-to=<?= $i; ?> class=<?= $activates;?> aria-current="true" aria-label="Slide 1"></button>
 
             <?php $i++; } ?>
     
@@ -102,40 +102,73 @@
 </div>
 <br>
 <br>
-<!-- Added section -->
+<?php
+$FontAwesome1="";
+$FontAwesomeTitle1="";
+$FontAwesomeDesc1="";
+$FontAwesome2="";
+$FontAwesomeTitle2="";
+$FontAwesomeDesc2="";
+$FontAwesome3="";
+$FontAwesomeTitle3="";
+$FontAwesomeDesc3="";
+$FontAwesome4="";
+$FontAwesomeTitle4="";
+$FontAwesomeDesc4="";
+$sqls="SELECT FontAwesomeIcon1,FontAwesomeIcon2,FontAwesomeIcon3,FontAwesomeIcon4, FontAwesomeIcon1Title,FontAwesomeIcon2Title,FontAwesomeIcon3Title,FontAwesomeIcon4Title,FontAwesomeIcon1Desc,FontAwesomeIcon2Desc,FontAwesomeIcon3Desc,FontAwesomeIcon4Desc
+FROM footercontact";
+$resa=mysqli_query($conn,$sqls);
+if ($resa) {
+  $row = mysqli_fetch_assoc($resa);
+  $FontAwesome1=$row['FontAwesomeIcon1'];
+  $FontAwesome2=$row['FontAwesomeIcon2'];
+  $FontAwesome3=$row['FontAwesomeIcon3'];
+  $FontAwesome4=$row['FontAwesomeIcon4'];
+  $FontAwesomeTitle1=$row['FontAwesomeIcon1Title'];
+  $FontAwesomeTitle2=$row['FontAwesomeIcon2Title'];
+  $FontAwesomeTitle3=$row['FontAwesomeIcon3Title'];
+  $FontAwesomeTitle4=$row['FontAwesomeIcon4Title'];
+    $FontAwesomeDesc1=$row['FontAwesomeIcon1Desc'];
+    $FontAwesomeDesc2=$row['FontAwesomeIcon2Desc'];
+    $FontAwesomeDesc3=$row['FontAwesomeIcon3Desc'];
+    $FontAwesomeDesc4=$row['FontAwesomeIcon4Desc'];
+  }
+
+?>
 <section id="featured-services" class="featured-services">
     <div class="container" data-aos="fade-up">
 
       <div class="row">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="fas fa-heartbeat"></i></div>
-            <h4 class="title">Entrust Us</h4>
-            <p class="description">Entrust your heart to us with your health related problems</p>
+            <!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
+            <div class="icon"><?= $FontAwesome1; ?></div>
+            <h4 class="title"><?= $FontAwesomeTitle1; ?></h4>
+            <p class="description"><?= $FontAwesomeDesc1; ?></p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="fas fa-pills"></i></div>
-            <h4 class="title">Diagnosis</h4>
-            <p class="description">Your every diagnosis is saved here</p>
+            <div class="icon"><?= $FontAwesome2; ?></div>
+            <h4 class="title"><?= $FontAwesomeTitle2; ?></h4>
+            <p class="description"><?= $FontAwesomeDesc2; ?></p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="fas fa-thermometer"></i></div>
-            <h4 class="title">Certified Doctors</h4>
-            <p class="description">Fully Certified and Experienced Doctor</p>
+            <div class="icon"><?= $FontAwesome3; ?></div>
+            <h4 class="title"><?= $FontAwesomeTitle3; ?></h4>
+            <p class="description"><?= $FontAwesomeDesc3; ?></p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="fas fa-dna"></i></div>
-            <h4 class="title">Easy Appointment</h4>
-            <p class="description">Book appointment in your date and time</p>
+            <div class="icon"><?= $FontAwesome4; ?></div>
+            <h4 class="title"><?= $FontAwesomeTitle4; ?></h4>
+            <p class="description"><?= $FontAwesomeDesc4; ?></p>
           </div>
         </div>
 
@@ -146,99 +179,10 @@
 <br>
 <br>
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span style="font-family: 'Dancing Script', cursive; font-size:34px;">Get connected with us:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.facebook.com/LGICpokhara" class="me-4 link-secondary">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-          <i class="fa-solid fa-truck-medical"></i>
-            MyMed-Your Complete Doctor
-          </h6>
-          <p>  
-            Effortlessly manage your patient details online for personalized and secure care.
-          </p>
-        </div>
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">
-            Our Facilities
-          </h6>
-          <p>
-            Online Booking
-          </p>
-          <p>
-            Online Medical Report
-          </p>
-          <p>
-            Easily Accessible
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-       
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> Nepal</p>
-          <p>
-            <i class="fas fa-envelope me-3 text-secondary"></i>
-            mymed75@gmail.com
-          </p>
-          <p><i class="fas fa-phone me-3 text-secondary"></i> 9815457810</p>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025); border-top:2px solid rgb(143, 137, 137); ">
-  CopyRight &copy; <?php echo date("Y")?> -ALL Right Reserved
-  </div>
-  <!-- Copyright -->
-</footer>
+<?php
+require 'footer/footer.php';
+?>
 <!-- Footer -->
-
-
-
-
-
-   
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>
