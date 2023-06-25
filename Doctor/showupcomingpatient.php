@@ -50,7 +50,7 @@ require '../connection.php';
         <?php
                 $querys="SELECT a.docid, a.patientid AS patientid,a.Concern, a.appointid,a.appointmenttime,a.appointmentdate, l.Username, l.Email
                 FROM appointmenttable a
-                INNER JOIN logintable l ON a.patientid = l.LoginId  WHERE appointmentdate > CURDATE() AND docid = '$idd'
+                INNER JOIN logintable l ON a.patientid = l.LoginId  WHERE appointmentdate > CURDATE() AND docid = '$idd' AND appointmentdone=0
                 ORDER BY appointmentdate ASC";
                 
             $resulsts = mysqli_query($conn, $querys);
@@ -83,7 +83,7 @@ require '../connection.php';
       <form id="verifyForm" action="checkupform.php" method="POST">
                     <input type="hidden" id="appoin" name="LoginIds">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Yes</button>
+                    <button type="submit" name= "subm" class="btn btn-danger">Yes</button>
                 </form>
       </div>
     </div>

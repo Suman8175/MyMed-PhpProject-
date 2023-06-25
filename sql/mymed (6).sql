@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2023 at 01:50 PM
+-- Generation Time: Jun 25, 2023 at 10:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,66 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `appointmentreportimage`
+--
+
+CREATE TABLE `appointmentreportimage` (
+  `AiId` int(11) NOT NULL,
+  `AppointmentReportImage1` varchar(300) NOT NULL,
+  `AppointmentReportImage2` varchar(300) NOT NULL,
+  `AppointmentReportImage3` varchar(300) NOT NULL,
+  `AppointmentReportImage4` varchar(300) NOT NULL,
+  `AppointmentReportImage5` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointmentreportimage`
+--
+
+INSERT INTO `appointmentreportimage` (`AiId`, `AppointmentReportImage1`, `AppointmentReportImage2`, `AppointmentReportImage3`, `AppointmentReportImage4`, `AppointmentReportImage5`) VALUES
+(6, '../AppointmentReport/MyMedLogo.jpg', '../AppointmentReport/downdoc1.jpg', '', '', ''),
+(7, '../AppointmentReport/logo.jpg', '', '', '', ''),
+(8, '../AppointmentReport/report1.png', '../AppointmentReport/report2.png', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointmentreporttable`
+--
+
+CREATE TABLE `appointmentreporttable` (
+  `ArId` int(11) NOT NULL,
+  `appointid` int(11) NOT NULL,
+  `AiId` int(11) NOT NULL,
+  `firstmedication` varchar(255) NOT NULL,
+  `secondmedication` varchar(255) NOT NULL,
+  `thirdmedication` varchar(255) NOT NULL,
+  `bloodpressure` varchar(255) NOT NULL,
+  `heartrate` varchar(255) NOT NULL,
+  `respiratoryrate` varchar(255) NOT NULL,
+  `primarydiagnosis` varchar(255) NOT NULL,
+  `secondarydiagnosis` varchar(255) NOT NULL,
+  `pescribedmedications` varchar(255) NOT NULL,
+  `surgeries` varchar(255) NOT NULL,
+  `therapyplans` varchar(255) NOT NULL,
+  `cardiovascularReport` varchar(255) NOT NULL,
+  `respiratoryReport` varchar(255) NOT NULL,
+  `gastrointestinalReport` varchar(255) NOT NULL,
+  `reportfiles` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointmentreporttable`
+--
+
+INSERT INTO `appointmentreporttable` (`ArId`, `appointid`, `AiId`, `firstmedication`, `secondmedication`, `thirdmedication`, `bloodpressure`, `heartrate`, `respiratoryrate`, `primarydiagnosis`, `secondarydiagnosis`, `pescribedmedications`, `surgeries`, `therapyplans`, `cardiovascularReport`, `respiratoryReport`, `gastrointestinalReport`, `reportfiles`) VALUES
+(2, 1, 6, 'Im first text', 'Im second medication', 'Im third medication', '14', '87', '25', 'diagnosis', 'another diagnosis', 'you should take rest', 'sleep daily 8 hours', 'fined and relax', 'good', 'nice', 'well', 'C:xampp	mpphpB6C0.tmp'),
+(3, 2, 7, 'awd', 'adw', 'sdvcd', '14', '25', '98', 'sfe', 'sfsefsef', 'sefsef', 'fesfsef', 'sfeesf', 'sefesf', 'sefsf', 'fsefesf', 'C:xampp	mpphp13C.tmp'),
+(4, 4, 8, 'adwwad', 'dwafd', 'fsfsfdsf', '34', '34', '23', 'fwerewr', 'werwer', 'rw3r3wr', 'wferfwre', 'wrw3r3', 'rww3r', 'wrw3r', 'wrw3r', 'C:xampp	mpphp5E7A.tmp');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `appointmenttable`
 --
 
@@ -33,33 +93,34 @@ CREATE TABLE `appointmenttable` (
   `patientid` int(11) NOT NULL,
   `appointmentdate` date NOT NULL,
   `appointmenttime` time NOT NULL,
-  `Concern` varchar(300) NOT NULL
+  `Concern` varchar(300) NOT NULL,
+  `appointmentdone` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointmenttable`
 --
 
-INSERT INTO `appointmenttable` (`appointid`, `docid`, `patientid`, `appointmentdate`, `appointmenttime`, `Concern`) VALUES
-(1, 76, 82, '2023-07-15', '13:00:00', 'Stress or exhaustion'),
-(2, 76, 78, '2023-07-15', '11:00:00', 'Ok Im sick from headache'),
-(3, 83, 80, '2023-06-15', '15:00:00', 'gdrgdrgdrg'),
-(4, 76, 80, '2023-07-15', '09:00:00', 'Weakened immune system'),
-(5, 76, 80, '2023-08-15', '15:00:00', 'Exposure to toxins or pollutants'),
-(8, 83, 80, '2023-06-17', '11:00:00', 'sefesfesfes'),
-(9, 89, 80, '2023-06-14', '09:00:00', 'esfesfesfesf'),
-(10, 76, 79, '2023-07-01', '14:00:00', 'Side effects from medication'),
-(11, 83, 80, '2023-06-23', '13:00:00', 'esfesffsfs'),
-(12, 83, 80, '2023-06-23', '15:00:00', 'sefesfesf'),
-(13, 77, 80, '2023-06-23', '10:00:00', 'adsefesfsafs'),
-(14, 86, 80, '2023-06-23', '10:00:00', 'AWDawdaWDad'),
-(15, 77, 80, '2023-06-23', '13:00:00', 'I am suffering from common colkd from past 3 days.'),
-(16, 76, 92, '2023-06-30', '14:00:00', 'suffering from common cold from past three days'),
-(17, 77, 80, '2023-06-24', '09:00:00', 'dgfgdf'),
-(18, 76, 80, '2023-06-30', '09:00:00', 'ui45uy54uyu5'),
-(19, 77, 80, '2023-06-23', '14:00:00', 'help me'),
-(20, 87, 80, '2023-06-24', '13:00:00', 'okkkk'),
-(21, 96, 82, '2023-06-23', '11:00:00', 'EJKADJKDEA');
+INSERT INTO `appointmenttable` (`appointid`, `docid`, `patientid`, `appointmentdate`, `appointmenttime`, `Concern`, `appointmentdone`) VALUES
+(1, 76, 82, '2023-07-15', '13:00:00', 'Stress or exhaustion', 1),
+(2, 76, 78, '2023-07-15', '11:00:00', 'Ok Im sick from headache', 1),
+(3, 83, 80, '2023-06-15', '15:00:00', 'gdrgdrgdrg', 0),
+(4, 76, 80, '2023-07-15', '09:00:00', 'Weakened immune system', 1),
+(5, 76, 80, '2023-08-15', '15:00:00', 'Exposure to toxins or pollutants', 0),
+(8, 83, 80, '2023-06-17', '11:00:00', 'sefesfesfes', 0),
+(9, 89, 80, '2023-06-14', '09:00:00', 'esfesfesfesf', 0),
+(10, 76, 79, '2023-07-01', '14:00:00', 'Side effects from medication', 0),
+(11, 83, 80, '2023-06-23', '13:00:00', 'esfesffsfs', 0),
+(12, 83, 80, '2023-06-23', '15:00:00', 'sefesfesf', 0),
+(13, 77, 80, '2023-06-23', '10:00:00', 'adsefesfsafs', 0),
+(14, 86, 80, '2023-06-23', '10:00:00', 'AWDawdaWDad', 0),
+(15, 77, 80, '2023-06-23', '13:00:00', 'I am suffering from common colkd from past 3 days.', 0),
+(16, 76, 92, '2023-06-30', '14:00:00', 'suffering from common cold from past three days', 0),
+(17, 77, 80, '2023-06-24', '09:00:00', 'dgfgdf', 0),
+(18, 76, 80, '2023-06-30', '09:00:00', 'ui45uy54uyu5', 0),
+(19, 77, 80, '2023-06-23', '14:00:00', 'help me', 0),
+(20, 87, 80, '2023-06-24', '13:00:00', 'okkkk', 0),
+(21, 96, 82, '2023-06-23', '11:00:00', 'EJKADJKDEA', 0);
 
 -- --------------------------------------------------------
 
@@ -249,6 +310,20 @@ INSERT INTO `slidertable` (`sliderid`, `sliderheading`, `sliderparagraph`, `slid
 --
 
 --
+-- Indexes for table `appointmentreportimage`
+--
+ALTER TABLE `appointmentreportimage`
+  ADD PRIMARY KEY (`AiId`);
+
+--
+-- Indexes for table `appointmentreporttable`
+--
+ALTER TABLE `appointmentreporttable`
+  ADD PRIMARY KEY (`ArId`),
+  ADD KEY `appointid` (`appointid`),
+  ADD KEY `AiId` (`AiId`);
+
+--
 -- Indexes for table `appointmenttable`
 --
 ALTER TABLE `appointmenttable`
@@ -293,6 +368,18 @@ ALTER TABLE `slidertable`
 --
 
 --
+-- AUTO_INCREMENT for table `appointmentreportimage`
+--
+ALTER TABLE `appointmentreportimage`
+  MODIFY `AiId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `appointmentreporttable`
+--
+ALTER TABLE `appointmentreporttable`
+  MODIFY `ArId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `appointmenttable`
 --
 ALTER TABLE `appointmenttable`
@@ -331,6 +418,13 @@ ALTER TABLE `slidertable`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `appointmentreporttable`
+--
+ALTER TABLE `appointmentreporttable`
+  ADD CONSTRAINT `appointmentreporttable_ibfk_1` FOREIGN KEY (`appointid`) REFERENCES `appointmenttable` (`appointid`),
+  ADD CONSTRAINT `appointmentreporttable_ibfk_2` FOREIGN KEY (`AiId`) REFERENCES `appointmentreportimage` (`AiId`);
 
 --
 -- Constraints for table `appointmenttable`
