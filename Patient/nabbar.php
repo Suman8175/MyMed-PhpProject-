@@ -40,6 +40,9 @@ if (isset($_SESSION['patientusername'])){
             <a class="nav-link active" aria-current="page" href="appointmentview.php">View Appointments</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="appointmentreport.php">Appointment Reports</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="editinfopatient.php">Edit Information</a><br><br>
           </li>
           <button type="button" class="btn btn-warning"  data-bs-toggle='modal' data-bs-target='#logoutpatientModal'>LogOut</button>
