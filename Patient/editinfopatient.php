@@ -21,6 +21,9 @@ if (isset($_SESSION['errorpaedit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Your Profile</title>
   <style>
+    body{
+      background-image: linear-gradient( rgb(90, 224, 239), rgb(90, 224, 239));
+    }
         .card-registration .select-input.form-control[readonly]:not([disabled]) {
             font-size: 1rem;
             line-height: 2.15;
@@ -32,6 +35,7 @@ if (isset($_SESSION['errorpaedit'])) {
             top: 13px;
         }
         .custom-margin{
+          background-image: linear-gradient(rgb(12, 66, 107), rgb(90, 224, 239));
           margin-top: -85px;
         }
         .container{

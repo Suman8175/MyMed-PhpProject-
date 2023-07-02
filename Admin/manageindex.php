@@ -76,7 +76,11 @@ if ($res) {
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>MyMed</title>
+	
 	<style>
+		body{
+    background-image: linear-gradient(rgb(90, 224, 239), rgb(90, 224, 239));
+}
 		hr {
 			border: 2px solid black;
 			height: 2px;
@@ -89,7 +93,7 @@ if ($res) {
 <body>
 
 	<div class="container">
-		<h1 class="well">Manage Your Front Page</h1>
+		<h1 class="well" style="display:flex; justify-content:center;">Manage Your Front Page</h1>
 		<div class="col-lg-12 well">
 			<div class="row">
 				<form id="footerform" action="backendindex.php" method="POST" enctype="multipart/form-data">

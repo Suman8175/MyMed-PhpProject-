@@ -19,6 +19,7 @@ if (isset($_SESSION['doctordeletedsucessfully'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>doctor verify</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
   </head>
@@ -36,7 +37,7 @@ require 'navbar.php';
 <br>
 <br>
 
-<table id="example" class="table table-striped" style="width:100%">
+<table id="example" class="table table-striped" style="width:100%;">
         <thead>
             <tr>
                 <th>Id</th>
@@ -148,5 +149,5 @@ $res=mysqli_query($conn,$sql);
     }
 </script>
 
-<body>
+  </body>
     </html>
