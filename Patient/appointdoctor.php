@@ -23,7 +23,25 @@
 ?>
 
   <section class="swiper mySwiper"><br><br><br><br>
-  <span class="title" style="margin-top:14px;">Appoint Doctor</span>
+  <!-- <span class="title" style="margin-top:14px;">Appoint Doctor</span> -->
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <span class="title" style="margin-top:14px;">Appoint Doctor</span>
+    </div>
+    <div class="col-md-6 mt-4">
+      <form class="form-inline" method="get" action="">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="search_query">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" name="srch">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
     <div class="swiper-wrapper">
 <?php
@@ -53,6 +71,68 @@
     <p style=" border-top:2px solid black;
   padding-top:9px;"> Good Health — It's a Matter of Life & Death!We Can't Help With The Second Certainty in Life, But We Can Delay The First One!</p>
   </section>
+
+<!-- Search Query -->
+<?php
+if (isset($_GET['srch'])) {
+  $sear = $_GET['search_query'];
+  $searchQuery=ltrim($sear);
+  // $sqlsearch = "SELECT * FROM logintable WHERE (Username LIKE '%$searchQuery%') AND Role = 'Doctor'  AND isverified='1'  AND verifieddoctor='1'";
+  if (empty($searchQuery)) {
+    echo "";
+  }
+  else{
+
+  $sqlsearch="SELECT logintable.Username,logintable.LoginId, doctordetails.Specialization, doctordetails.Mobile, doctordetails.ProfilePicture 
+  FROM logintable 
+  INNER JOIN doctordetails ON logintable.LoginId = doctordetails.LoginId 
+  WHERE (logintable.Username LIKE '%$searchQuery%') 
+  AND logintable.Role = 'doctor' AND isverified='1'  AND verifieddoctor='1'";
+  $runquery=mysqli_query($conn,$sqlsearch);
+  $noofrows=mysqli_num_rows($runquery);
+if($noofrows>0){
+  ?>
+  <div class="container">
+  <div class="row">
+    <?php
+    while($answer=mysqli_fetch_array($runquery)){
+      ?>
+   <!-- Search Card -->
+   <div class="col-lg-4 col-md-6 mb-3 mt-3">
+  <div class="card shadow" style="width: 360px;">
+    <div class="d-flex" style="display:flex;justify-content:space-around;margin-block:3rem;">
+  <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px; border: 2px solid blue;">
+      <img id="changeimg" src= <?= "../profilepicture/".$answer['ProfilePicture'];?> alt='Doctor Image'  class="img-fluid rounded-circle" style="object-fit: cover; width: 100%; height: 100%;">  
+   </div>
+   </div>
+    <div class="card-body text-center">
+      <h5 class="card-title">Name:<?= $answer['Username'];?></h5>
+      <p class="card-text">Specialist: <?= $answer['Specialization'];?></p>
+      <p class="card-text">Mobile No: <?= $answer['Mobile'];?></p>
+      <form action="checkappointment.php" method="POST">
+        <input type="hidden" name="appid" value="<?= $answer['LoginId'] ?>">
+        <button class="btn btn-success mx-auto d-block" type="submit">Appoint</button>
+      </form>
+    </div>
+  </div>
+</div>   
+      <?php
+    }
+  }
+  else{
+    echo "No records found";
+  }
+
+}
+}
+
+?>
+
+
+
+<!-- Search Query Finished -->
+
+
 
 <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
