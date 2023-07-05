@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="../css/appointdoctor.css">
     <link rel="stylesheet" href="../css/appoint.css">
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/body.css">
-    
+    <link rel="stylesheet" href="../css/body.css">  
 </head>
 <body>
   <?php 
@@ -87,7 +86,7 @@ if (isset($_GET['srch'])) {
   $sqlsearch="SELECT logintable.Username,logintable.LoginId, doctordetails.Specialization, doctordetails.Mobile, doctordetails.ProfilePicture 
   FROM logintable 
   INNER JOIN doctordetails ON logintable.LoginId = doctordetails.LoginId 
-  WHERE (logintable.Username LIKE '%$searchQuery%') 
+  WHERE (logintable.Username LIKE '%$searchQuery%' OR doctordetails.Specialization LIKE '%$searchQuery%') 
   AND logintable.Role = 'doctor' AND isverified='1'  AND verifieddoctor='1'";
   $runquery=mysqli_query($conn,$sqlsearch);
   $noofrows=mysqli_num_rows($runquery);

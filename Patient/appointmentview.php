@@ -46,9 +46,9 @@ require '../connection.php';
          FROM appointmenttable
          WHERE appointmentdate > CURDATE() AND patientid = '$Logid'
          "; */
-         $sqls="SELECT a.patientid, a.docid AS doctorid,a.Concern, a.appointid,a.appointmenttime,a.appointmentdate, l.Username, l.Email
+         $sqls="SELECT a.patientid, a.docid AS doctorid,a.Concern, a.appointid,a.appointmenttime,a.appointmentdate,a.appointmentdone ,l.Username, l.Email
          FROM appointmenttable a
-         INNER JOIN logintable l ON a.docid = l.LoginId  WHERE appointmentdate > CURDATE() AND patientid = '$Logid'
+         INNER JOIN logintable l ON a.docid = l.LoginId  WHERE appointmentdone='1' AND patientid = '$Logid'
          ";
          
          
