@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     $slidercontent = $_POST['paragraph'];
     $imagename=$_FILES["imageFile"]["name"];
     $tempfile=$_FILES["imageFile"]["tmp_name"];
-     $folder="profilepicture/".$imagename;
+     $folder="sliderimages/".$imagename;
      echo $sliderheading;
     if (!empty($imagename)){
   $sql2 = "UPDATE slidertable SET sliderheading = '$sliderheading', sliderparagraph = '$slidercontent', sliderimage = '$imagename' WHERE sliderid = '$sliderid'";

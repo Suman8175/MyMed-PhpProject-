@@ -3,14 +3,21 @@
 $userame="";
 $appdate="";
 $apptime="";
+$appointmentid="";
 if (isset($_SESSION['patientusername'])){
   $userame=$_SESSION['patientusername'];
 }
 if (isset($_SESSION['appdate'])){
   $appdate=$_SESSION['appdate'];
+  unset($_SESSION['appdate']);
 }
 if (isset($_SESSION['apptime'])){
   $apptime=$_SESSION['apptime'];
+  unset($_SESSION['apptime']);
+}
+if (isset($_SESSION['appointmentid'])){
+  $appointmentid=$_SESSION['appointmentid'];
+  unset($_SESSION['appointmentid']);
 }
 ?>
 <!DOCTYPE html>
@@ -38,6 +45,22 @@ if (isset($_SESSION['apptime'])){
       max-width: 600px;
       width: 100%;
     }
+    .qr-body{
+    display: grid;
+    place-items: center;
+    padding:20px;
+    background-color: blue;
+}
+
+.qr-body img{
+    max-width: 100%;
+    max-height: 70%;
+    margin-block: -93px;
+    padding: 20px;
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-top: -163px;
+}
   </style>
   <title>Appointment Confirmation</title>
 </head>
@@ -50,7 +73,8 @@ if (isset($_SESSION['apptime'])){
       </div>
       <div class="card-body">
         <p>Dear <?php echo $userame ?></p>
-        <p>Your appointment has been booked.</p>
+        <p>Your appointment has been booked with appointment id <?=$appointmentid; ?></p>
+
         <p>Date: <?php echo $appdate ?></p>
         <p>Time: <?php echo $apptime ?></p>
         <p>If you have any questions or need to reschedule, please contact us at mymed8175@gmail.com</p>
@@ -58,6 +82,17 @@ if (isset($_SESSION['apptime'])){
         <p>Best regards,</p>
         <p>MyMed</p>
       </div>
+      <div class="box">
+        <div class="qr-header">
+            <h1>Generate QR Code</h1>
+            <input type="hidden" placeholder="Type your text or URL"  value="<?=$appointmentid; ?>" id="qr-text">
+        </div>
+        <div class="qr-body"></div>
+        <div class="qr-footer">
+
+            <a href="" id="downloadBtn" download="Qrcode.png">Download</a>
+        </div>
+    </div>
       <div class="card-footer bg-light">
         <small class="text-muted">Your Appointment was successfully booked.</small>
       </div>
@@ -68,7 +103,9 @@ if (isset($_SESSION['apptime'])){
       </div>
     </div>
   </div>
+  <script src="qrscript.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </body>
 
 </html>

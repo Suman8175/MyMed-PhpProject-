@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
     $city = $_POST['City'];
     $state = $_POST['state'];
     $house = $_POST['House'];
-    $registration = $_POST['Registration'];
     $specialization = $_POST['specialization'];
     $mobile = $_POST['Mobile'];
     $imagename=$_FILES["chooseimg"]["name"];
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
      if (!empty($imagename)) {
      $updateSql = "UPDATE logintable lt
      JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-     SET lt.Username = '$username', lt.`D.O.B` = '$dob', lt.NMCno = '$registration', dd.City = '$city', dd.State = '$state',
+     SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
          dd.HouseNo = '$house', dd.Specialization = '$specialization',
          dd.Mobile = '$mobile', dd.ProfilePicture = '$imagename',dd.starttime='$starttime',dd.endtime='$endtime'
      WHERE lt.LoginId = $LoginId";
@@ -44,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST" ){
      else{
         $updateSql = "UPDATE logintable lt
         JOIN doctordetails dd ON lt.LoginId = dd.LoginId
-        SET lt.Username = '$username', lt.`D.O.B` = '$dob',lt.NMCno = '$registration', dd.City = '$city', dd.State = '$state',
+        SET lt.Username = '$username', lt.`D.O.B` = '$dob', dd.City = '$city', dd.State = '$state',
             dd.HouseNo = '$house', dd.Specialization = '$specialization',
             dd.Mobile = '$mobile',dd.starttime='$starttime',dd.endtime='$endtime'
         WHERE lt.LoginId = $LoginId";

@@ -56,9 +56,9 @@
         </div>
 
         <div class="card__content">
-          <span class="card__title">Name:<?= $row['Username']?></span>
+          <span class="card__title">Dr.<?= $row['Username']?></span>
           <span class="card__name">Specialist:<?= $row['Specialization']?></span>
-          <p class="card__text"><?= $row['Mobile']?></p>
+          <p class="card__text">Mobile: <?= $row['Mobile']?></p>
           <form action="checkappointment.php" method="POST">
           <input type= "hidden" name="appid" value="<?= $row['LoginId']?>">
           <button class="card__btn">Appoint</button>
@@ -106,7 +106,7 @@ if($noofrows>0){
    </div>
    </div>
     <div class="card-body text-center" >
-      <h5 class="card-title">Name:<?= $answer['Username'];?></h5>
+      <h5 class="card-title">Dr. <?= $answer['Username'];?></h5>
       <p class="card-text">Specialist: <?= $answer['Specialization'];?></p>
       <p class="card-text">Mobile No: <?= $answer['Mobile'];?></p>
       <form action="checkappointment.php" method="POST">

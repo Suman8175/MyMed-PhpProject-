@@ -15,8 +15,10 @@ $patientid="";
     VALUES (NULL, '$doctorid','$patientid','$appointdate','$appointtime','$problem')";
     $queryfire=mysqli_query($conn,$sql);
     if ($queryfire){
+      $appointmentid=mysqli_insert_id($conn);
       $_SESSION['appdate']=$appointdate;
       $_SESSION['apptime']=$appointtime;
+      $_SESSION['appointmentid']=$appointmentid;
         header("Location:confirmationbox.php");
     }
     else{

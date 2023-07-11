@@ -116,7 +116,7 @@ if (isset($_SESSION['nosigned'])){
                         <div class="birthday">
                             <p>Birthday</p>
                             <div class="date">
-                                <input type="date" name="DOB"  id="DOB" class="date"/>
+                                <input type="date" name="DOB"  id="DOB" class="date" required>
                               
                             </div>
                           </div>

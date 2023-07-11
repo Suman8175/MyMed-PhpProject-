@@ -37,7 +37,7 @@ require '../connection.php';
         </thead>
         <tbody>
         <?php
-            $querys = "SELECT lt.`LoginId`, lt.`Email`, lt.`D.O.B`, lt.`Username`,lt.`AccountCreation`,dd.`PatientMobile`,  dd.`PatientProfilePicture` FROM `logintable` lt JOIN `patientdetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE lt.`userdelete` = 0 AND lt.`isverified` = 1 ";
+            $querys = "SELECT lt.`LoginId`, lt.`Email`, lt.`D.O.B`, lt.`Username`,lt.`AccountCreation`,dd.`PatientMobile`,  dd.`PatientProfilePicture` FROM `logintable` lt JOIN `patientdetails` dd ON lt.`LoginId` = dd.`LoginId` WHERE lt.`userdelete` = 0 AND lt.`isverified` = 1 AND lt.`Role` = 'Patient' ";
             $resulst = mysqli_query($conn, $querys);
             while ($answer = mysqli_fetch_array($resulst)) {
                 $loginId = $answer['LoginId'];

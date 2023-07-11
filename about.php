@@ -34,7 +34,7 @@ $thirdimage= "picture/".$row['ThirdImage'];
   <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"  style="padding-left: 4rem; font-family: cursive;"><img style="height:5vh;width:11vh;" src="picture/logo.jpg"></a>
+    <a class="navbar-brand" href="#"  style="padding-left: 4rem; font-family: cursive;"><img style="height:5vh;width:11vh;" src="picture/NavbarLogo.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -114,8 +114,8 @@ $thirdimage= "picture/".$row['ThirdImage'];
                 </div>
                 <div class="col-lg-6 pt-4" style="min-height: 500px;">
                     <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
-                        <img class="position-absolute img-fluid w-100 h-100" src="picture/image123.jpg" style="object-fit: cover; padding: 0 0 50px 100px;" alt="">
-                        <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50" src="picture/imgf.jpg" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="picture/AboutUsImage.jpg" style="object-fit: cover; padding: 0 0 50px 100px;" alt="">
+                        <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50" src="picture/AbousUsImageSecond.jpg" style="object-fit: cover;" alt="">
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
   <body>
   
     <?php
-    include'navbar.php';
+    include 'navbar.php';
 
     $sliderid="";
     $sliderheading="";
@@ -47,6 +47,7 @@
    </div>
    <div class="edit"><!--edit wala ho-->
    <input type="file" name="imageFile" id="choosefile"  value="<?php echo $sliderimage ?>">
+   </div>
   <div class="mb-3">
     <input type="hidden" name="sliderid" class="form-control" id="title"  value="<?php echo $sliderid?>">
   </div>
@@ -63,7 +64,7 @@
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:12px;">
  Update
 </button>
-</div>
+
 </form>
 
 <!-- Button trigger modal -->

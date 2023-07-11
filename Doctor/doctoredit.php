@@ -85,7 +85,7 @@ WHERE lt.LoginId = '$Loginid'";
             <div class="card card-registration my-4">
               <div class="row g-0">
                 <div class="col-xl-6 d-none d-xl-block">
-                  <img src="../profilepicture/test.jpg"
+                  <img src="../profilepicture/DoctorForm.jpg"
                     alt="Sample photo" class="img-fluid"
                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
                 </div>
@@ -174,11 +174,21 @@ WHERE lt.LoginId = '$Loginid'";
                           </div>
                         </div>
                       </div>
-
+                      <div class="row">
+                      <div class="col-md-6 mb-4">
                       <div class="form-outline mb-4">
                         <label for="inputhouse" class="form-label">House No.</label>
                         <input type="text" class="form-control" name="House" id="inputhouse"
                           value="<?php echo $houseNo ?>">
+                      </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                      <div class="form-outline mb-4">
+                        <label for="inputhouse" class="form-label">Mobile No.</label>
+                        <input type="text" class="form-control" name="Mobile" id="inputmobile"
+                          value="<?php echo $mobile ?>">
+                      </div>
+                      </div>
                       </div>
 
                       <div class="row">
@@ -186,7 +196,7 @@ WHERE lt.LoginId = '$Loginid'";
                           <div class="form-outline">
                             <label for="Doctorreg" class="form-label">Doctor Registration No</label>
                             <input type="text" class="form-control" name="Registration" id="Doctorreg"
-                              value="<?php echo $registration ?>">
+                              value="<?php echo $registration ?>" disabled>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -202,6 +212,12 @@ WHERE lt.LoginId = '$Loginid'";
                               <option value="Neuro" <?php if ($specialization == "Neuro")
                                 echo " selected";
                               ?>>Neuro</option>
+                              <option value="Dermatologists" <?php if ($specialization == "Dermatologists")
+                                echo " selected";
+                              ?>>Dermatologists</option>
+                              <option value="Gastroenterologists" <?php if ($specialization == "Gastroenterologists")
+                                echo " selected";
+                              ?>>Gastroenterologists</option>
                             </select>
                           </div>
                         </div>
