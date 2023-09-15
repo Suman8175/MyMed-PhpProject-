@@ -19,31 +19,31 @@ if (isset($_SESSION['patientusername'])){
   <body>
 
     
-  <nav class="navbar navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-dark bg-info fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MyMed</a>
+    <a class="navbar-brand" href="#" style="color:black"> <b>MyMed</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Patient</h5>
+      <div class="offcanvas-header bg-info ">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"> <b>Patient</b> </h5>
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><?= $usern; ?></h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body bg-info">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="appointdoctor.php">Appoint Doctor</a>
+            <a class="nav-link active" aria-current="page" href="appointdoctor.php" style="color:black"> <b>Appoint Doctor</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="appointmentview.php">View Appointments</a>
+            <a class="nav-link active" aria-current="page" href="appointmentview.php" style="color:black"> <b>View Appointments</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="appointmentreport.php">Appointment Reports</a>
+            <a class="nav-link active" aria-current="page" href="appointmentreport.php" style="color:black"> <b>Appointment Reports</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="editinfopatient.php">Edit Information</a><br><br>
+            <a class="nav-link" href="editinfopatient.php"style="color:black"> <b>Edit Information</b></a><br><br>
           </li>
           <button type="button" class="btn btn-warning"  data-bs-toggle='modal' data-bs-target='#logoutpatientModal'>LogOut</button>
           <form class="d-flex" role="search">

@@ -24,7 +24,7 @@
   <body>
 
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <nav class="navbar navbar-expand-lg bg-info sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand pl-3" href="#" style="padding-left: 4rem;font-family: cursive;"><img style="height:5vh;width:11vh;" src="picture/NavbarLogo.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,20 +33,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item  px-4">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php"> <b>Home</b></a>
         </li>
         <li class="nav-item  px-4">
-          <a class="nav-link" href="about.php">About Us</a>
+          <a class="nav-link" href="about.php"> <b>About Us</b></a>
         </li>
         <li class="nav-item  px-4">
-          <a class="nav-link" href="contactus.php">Contact Us</a>
+          <a class="nav-link" href="contactus.php"> <b>Contact Us</b></a>
         </li>
        
       </ul>
       <form class="d-flex ms-auto" >
-        <span>Login  &nbsp </span>
+        <span>   &nbsp </span>
       <a href="signuploginpage.php" class="me-4 link-secondary">
-    <i class="fa-sharp fa-solid fa-hotel"></i>
+    <i class="fa-sharp fa-solid text-dark" ><b>Login</b></i>
 </a>
       </form>
     </div>

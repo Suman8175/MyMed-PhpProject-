@@ -23,24 +23,24 @@ if (isset($_SESSION['docid'])){
   <body>
  
     
-  <nav class="navbar navbar-dark bg-dark fixed-top ">
+  <nav class="navbar navbar-dark bg-info fixed-top ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MyMed</a>
+    <a class="navbar-brand" href="#"> <b>MyMed</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
+      <div class="offcanvas-header bg-info">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Email:<?=" ". $username; ?></h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body bg-info">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="showupcomingpatient.php">View Upcomming Appointments</a>
+            <a class="nav-link active" aria-current="page" href="showupcomingpatient.php" style="color:black"> <b>View Upcomming Appointments</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="doctoredit.php">Edit Profile</a>
+            <a class="nav-link" href="doctoredit.php" style="color:black"> <b>Edit Profile</b></a>
           </li>
 
 
