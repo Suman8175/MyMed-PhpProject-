@@ -83,10 +83,10 @@ if (isset($_GET['srch'])) {
   }
   else{
 
-  $sqlsearch="SELECT logintable.Username,logintable.LoginId, doctordetails.Specialization, doctordetails.Mobile, doctordetails.ProfilePicture 
-  FROM logintable 
-  INNER JOIN doctordetails ON logintable.LoginId = doctordetails.LoginId 
-  WHERE (logintable.Username LIKE '%$searchQuery%' OR doctordetails.Specialization LIKE '%$searchQuery%') 
+  $sqlsearch="SELECT logintable.Username,logintable.LoginId, doctordetails.Specialization, doctordetails.Mobile, doctordetails.ProfilePicture
+  FROM logintable
+  INNER JOIN doctordetails ON logintable.LoginId = doctordetails.LoginId
+  WHERE (logintable.Username LIKE '%$searchQuery%' OR doctordetails.Specialization LIKE '%$searchQuery%')
   AND logintable.Role = 'doctor' AND isverified='1'  AND verifieddoctor='1'";
   $runquery=mysqli_query($conn,$sqlsearch);
   $noofrows=mysqli_num_rows($runquery);

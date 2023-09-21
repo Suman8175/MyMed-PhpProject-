@@ -5,9 +5,9 @@
 session_start();
 //if (isset($_SESSION['status'])) is used to check if the status value is set or not.We already set it in signupdetails.php and after using it 
 //we have to unset it.
-if (isset($_SESSION['status'])){
-    echo $_SESSION['status'];
-    unset($_SESSION['status']);
+if (isset($_SESSION['status'])){ //Check if there is any value in session variable or not
+   echo $_SESSION['status'];  //Print the value stored in session variable
+    unset($_SESSION['status']);  //Destroy the value in session variable
 }
 else{
     if (isset($_SESSION['sucessstatus'])){

@@ -14,8 +14,6 @@
     <title>Admin Dashboard</title>
   </head>
   <body>
-      
-
 <?php
 $totaldoctor="";
 
